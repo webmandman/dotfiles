@@ -1,8 +1,13 @@
 syntax on
 
 let mapleader = "\<space>"
-nnoremap <leader>ev	:e ~\AppData\Local\nvim\init.vim<CR>
-nnoremap <leader>S	:source ~\AppData\Local\nvim\init.vim<CR>
+if has('unix')
+	nnoremap <leader>ev	:e ~/.config/nvim/init.vim<CR>
+	nnoremap <leader>S	:source ~/.config/nvim/init.vim<CR>
+else
+	nnoremap <leader>ev	:e ~\AppData\Local\nvim\init.vim<CR>
+	nnoremap <leader>S	:source ~\AppData\Local\nvim\init.vim<CR>
+endif
 set autoread
 set shiftwidth=4 tabstop=4 softtabstop=4
 set colorcolumn=80
@@ -42,12 +47,14 @@ nnoremap <leader>fe <cmd>lua require('telescope.builtin').file_browser()<cr>
 nnoremap <leader>ch <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
 
 lua << EOF
+	local extcmd = ".cmd"
+	if vim.fn.has('unix') == 1 then extcmd = "" end
 	require 'lspconfig'.tsserver.setup{
 		on_attach = require 'completion'.on_attach,
-		cmd = { "typescript-language-server.cmd", "--stdio" },
+		cmd = { "typescript-language-server" .. extcmd, "--stdio" },
 	}
 	
-	local cmd = { "ngserver.cmd", "--stdio", "", "--tsProbeLocations",  "--ngProbeLocations", "" }
+	local cmd = { "ngserver" .. extcmd, "--stdio", "", "--tsProbeLocations",  "--ngProbeLocations", "" }
 	require 'lspconfig'.angularls.setup{
 		cmd = cmd,
 		on_new_config = function(new_config,new_root_dir)
