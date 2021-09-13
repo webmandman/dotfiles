@@ -1,0 +1,49 @@
+{
+    "command":{
+        "aliases":{
+            "add":"!git add --all",
+            "api":"cd C:/Development/sites/api",
+            "choco":"!choco",
+            "code":"!code",
+            "commit":"!git commit -m",
+            "dev":"cd C:/Development/playground",
+            "dotfiles":"cd C:/Development/Tools/dotfiles",
+            "git":"!git",
+            "intra":"cd C:/Development/sites/intra",
+            "list":"!git branch -l",
+            "master":"git checkout master",
+            "npm":"!npm",
+            "npx":"!npx",
+            "play":"cd C:/Development/playground",
+            "pm":"!pnpm",
+            "pull":"!git pull",
+            "push":"!git push",
+            "px":"!pnpx",
+            "sites":"cd C:/Development/sites",
+            "to":"cd C:/Development/Tools",
+            "vim":"!nvim"
+        }
+    },
+    "modules":{
+        "commandbox-banner-customizer":{
+            "hideBanner":"true"
+        },
+        "commandbox-bullet-train":{
+            "addNewLine":"false",
+            "boxVersionEnable":"false",
+            "dirBG":"blue",
+            "gitCleanBG":"green",
+            "gitDepth":"7",
+            "gitDirtyBG":"red",
+            "packageEnable":"false",
+            "promptChar":"",
+            "separateLine":"false",
+            "serverBG":"white",
+            "serverEnable":"true",
+            "serverText":"magenta",
+            "statusSuccessBG":"green",
+            "timeEnable":"false"
+        }
+    },
+    "verboseErrors":"true"
+}
