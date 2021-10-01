@@ -1,21 +1,30 @@
 syntax on
-let $nix_nvimpath = "~/.config/nvim/"
-let $win_nvimpath = "~\\AppData\\Local\\nvim\\"
 set noswapfile
 let mapleader = "\<space>"
 if has('unix')
-	set backupdir=$nix_nvimpathbackup
-	set directory=$nix_nvimpathswap
-	set undodir=$nix_nvimpathundo
-	nnoremap <leader>ev	:e $nix_nvimpathinit.vim<CR>
-	nnoremap <leader>S	:source $nix_nvimpathinit.vim<CR>
+	set backupdir=~/.config/nvim/backup
+	set directory=~/.config/nvim/swap
+	set undodir=~/.config/nvim/undo
+	nnoremap <leader>se	:e ~/.config/nvim/init.vim<CR>
+	nnoremap <leader>ss	:source ~/.config/nvim/init.vim<CR>
 else
-	set backupdir=$win_nvimpathbackup
-	set directory=$win_nvimpathswap
-	set undodir=$win_nvimpathundo
-	nnoremap <leader>ev	:e $win_nvimpathinit.vim<CR>
-	nnoremap <leader>S	:source $win_nvimpathinit.vim<CR>
+	set backupdir=~\AppData\Local\nvim\backup
+	set directory=~\AppData\Local\nvim\swap
+	set undodir=~\AppData\Local\nvim\undo
+	nnoremap <leader>se	:e ~\AppData\Local\nvim\init.vim<CR>
+	nnoremap <leader>ss	:source ~\AppData\Local\nvim\init.vim<CR>
 endif
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>, :resize +15<CR>
+nnoremap <leader>. :resize -15<CR>
+nnoremap <leader><leader>, :vertical resize +15<CR>
+nnoremap <leader><leader>. :vertical resize -15<CR>
+set hidden
+set nocompatible
+set encoding=utf-8
+set showtabline=0
+set noshowmode
 set nowrap
 set linebreak
 au BufRead,BufNewFile *.md setlocal wrap
@@ -34,19 +43,27 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing message extra message when using completion
 set shortmess+=c
 set completeopt=menuone,noinsert,noselect
+let g:lightline = {
+			\ 'solarized': 'wombat',
+			\ }
 let g:completion_matching_strategy_list = ['exact','substring','fuzzy']
 
 call plug#begin(stdpath('data') . '/plugged')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'vim-ctrlspace/vim-ctrlspace'
 	Plug 'nvim-lua/completion-nvim'
 	Plug 'fenetikm/falcon' " colorscheme
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'itchyny/lightline.vim'
 call plug#end()
 
 colorscheme falcon
 set termguicolors
+highlight statusline guibg=pink guifg=purple
+
+nnoremap <silent><C-p> :CtrlSpace<CR>
 
 " Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
