@@ -1,12 +1,20 @@
 syntax on
-
+let $nix_nvimpath = "~/.config/nvim/"
+let $win_nvimpath = "~\\AppData\\Local\\nvim\\"
+set noswapfile
 let mapleader = "\<space>"
 if has('unix')
-	nnoremap <leader>ev	:e ~/.config/nvim/init.vim<CR>
-	nnoremap <leader>S	:source ~/.config/nvim/init.vim<CR>
+	set backupdir=$nix_nvimpathbackup
+	set directory=$nix_nvimpathswap
+	set undodir=$nix_nvimpathundo
+	nnoremap <leader>ev	:e $nix_nvimpathinit.vim<CR>
+	nnoremap <leader>S	:source $nix_nvimpathinit.vim<CR>
 else
-	nnoremap <leader>ev	:e ~\AppData\Local\nvim\init.vim<CR>
-	nnoremap <leader>S	:source ~\AppData\Local\nvim\init.vim<CR>
+	set backupdir=$win_nvimpathbackup
+	set directory=$win_nvimpathswap
+	set undodir=$win_nvimpathundo
+	nnoremap <leader>ev	:e $win_nvimpathinit.vim<CR>
+	nnoremap <leader>S	:source $win_nvimpathinit.vim<CR>
 endif
 set nowrap
 set linebreak
