@@ -8,6 +8,9 @@ else
 	nnoremap <leader>ev	:e ~\AppData\Local\nvim\init.vim<CR>
 	nnoremap <leader>S	:source ~\AppData\Local\nvim\init.vim<CR>
 endif
+set nowrap
+set linebreak
+au BufRead,BufNewFile *.md setlocal wrap
 set autoread
 set shiftwidth=4 tabstop=4 softtabstop=4
 set colorcolumn=80
@@ -15,7 +18,6 @@ highlight ColorColumn ctermbg=55 guibg=lightgrey
 highlight clear SignColumn
 set mouse=a
 set number relativenumber
-set nowrap
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
