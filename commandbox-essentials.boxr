@@ -1,0 +1,11 @@
+# install commandbox-banner-customizer
+# install commandbox-bullet-train
+# install commandbox-cbdatasource
+# install commandbox-cfconfig
+# install commandbox-cfformat
+# install commandbox-dotenv
+# install commandbox-hostupdater
+# install commandbox-http-command
+# install commandbox-migrations
+
+install commandbox-banner-customizer,commandbox-bullet-train,commandbox-cbdatasource,commandbox-cfconfig,commandbox-cfformat,commandbox-dotenv,commandbox-hostupdater,commandbox-http-command,commandbox-migrations
