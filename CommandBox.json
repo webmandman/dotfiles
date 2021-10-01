@@ -11,10 +11,10 @@
             "gh":"!C:\\Development\\Tools\\gh\\bin\\gh.exe",
             "git":"!git",
             "intra":"cd C:/Development/sites/intra",
-            "list":"!git branch -l",
             "master":"git checkout master",
             "npm":"!npm",
             "npx":"!npx",
+            "nvm":"!nvm",
             "play":"cd C:/Development/playground",
             "pm":"!pnpm",
             "pull":"!git pull",
@@ -33,6 +33,7 @@
             "addNewLine":"false",
             "boxVersionEnable":"false",
             "dirBG":"blue",
+            "enable":"false",
             "gitCleanBG":"green",
             "gitDepth":"7",
             "gitDirtyBG":"red",
@@ -44,6 +45,12 @@
             "serverText":"magenta",
             "statusSuccessBG":"green",
             "timeEnable":"false"
+        },
+        "oh-my-commandbox":{
+            "addNewLine":"false",
+            "enable":"true",
+            "gitDepth":"5",
+            "serverDepth":"5"
         }
     },
     "verboseErrors":"true"

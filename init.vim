@@ -2,12 +2,23 @@ syntax on
 
 let mapleader = "\<space>"
 if has('unix')
-	nnoremap <leader>ev	:e ~/.config/nvim/init.vim<CR>
-	nnoremap <leader>S	:source ~/.config/nvim/init.vim<CR>
+	nnoremap <leader>se	:e ~/.config/nvim/init.vim<CR>
+	nnoremap <leader>ss	:source ~/.config/nvim/init.vim<CR>
 else
-	nnoremap <leader>ev	:e ~\AppData\Local\nvim\init.vim<CR>
-	nnoremap <leader>S	:source ~\AppData\Local\nvim\init.vim<CR>
+	nnoremap <leader>se	:e ~\AppData\Local\nvim\init.vim<CR>
+	nnoremap <leader>ss	:source ~\AppData\Local\nvim\init.vim<CR>
 endif
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>, :resize +15<CR>
+nnoremap <leader>. :resize -15<CR>
+nnoremap <leader><leader>, :vertical resize +15<CR>
+nnoremap <leader><leader>. :vertical resize -15<CR>
+set hidden
+set nocompatible
+set encoding=utf-8
+set showtabline=0
+set noshowmode
 set autoread
 set shiftwidth=4 tabstop=4 softtabstop=4
 set colorcolumn=80
@@ -24,19 +35,27 @@ set completeopt=menuone,noinsert,noselect
 " Avoid showing message extra message when using completion
 set shortmess+=c
 set completeopt=menuone,noinsert,noselect
+let g:lightline = {
+			\ 'solarized': 'wombat',
+			\ }
 let g:completion_matching_strategy_list = ['exact','substring','fuzzy']
 
 call plug#begin(stdpath('data') . '/plugged')
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'vim-ctrlspace/vim-ctrlspace'
 	Plug 'nvim-lua/completion-nvim'
 	Plug 'fenetikm/falcon' " colorscheme
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'itchyny/lightline.vim'
 call plug#end()
 
 colorscheme falcon
 set termguicolors
+highlight statusline guibg=pink guifg=purple
+
+nnoremap <silent><C-p> :CtrlSpace<CR>
 
 " Using Lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
