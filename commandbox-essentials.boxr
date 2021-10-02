@@ -8,4 +8,13 @@
 # install commandbox-http-command
 # install commandbox-migrations
 
+config set command.aliases.git='!git'
+config set command.aliases.add='!git add --all'
+config set command.aliases.commit='!git commit -m'
+config set command.aliases.push='!git push'
+config set command.aliases.pull='!git pull'
+config set command.aliases.nvim='!nvim'
+config set server='test'
+
 install commandbox-banner-customizer,commandbox-bullet-train,commandbox-cbdatasource,commandbox-cfconfig,commandbox-cfformat,commandbox-dotenv,commandbox-hostupdater,commandbox-http-command,commandbox-migrations
+
