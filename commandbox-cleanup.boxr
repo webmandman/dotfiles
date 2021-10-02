@@ -1,3 +1,5 @@
+# if any of these do not exist, commandbox will error and exit.
+# create an issue or pull request fix.
 config clear command
 config clear server
 
