@@ -20,6 +20,7 @@
             "pull":"!git pull",
             "push":"!git push",
             "px":"!pnpx",
+            "rmrf":"rm --recurse --force",
             "sites":"cd C:/Development/sites",
             "to":"cd C:/Development/Tools",
             "vim":"!nvim"
@@ -33,7 +34,7 @@
             "addNewLine":"false",
             "boxVersionEnable":"false",
             "dirBG":"blue",
-            "enable":"false",
+            "enable":"true",
             "gitCleanBG":"green",
             "gitDepth":"7",
             "gitDirtyBG":"red",
@@ -48,7 +49,7 @@
         },
         "oh-my-commandbox":{
             "addNewLine":"false",
-            "enable":"true",
+            "enable":"false",
             "gitDepth":"5",
             "serverDepth":"5"
         }
