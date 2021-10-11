@@ -1,49 +1,64 @@
-# this script must be run as Administrator
-#
-#
-$repoUrl = 'https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/box-repo.json'
+#Requires -RunAsAdministrator
+
+# set the version based on default or argument passed in
+param ($v="latest")
+
+$installpath = "C:\Development\Tools\Commandbox\"
+$downloadpath = $installpath + "downloads\"
+$basezipurl = "https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/"
+$repoUrl = "https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/box-repo.json"
+
+if( -Not (Test-Path -LiteralPath $downloadpath) ){
+	New-Item -Path $installpath -Name "downloads" -ItemType "directory"
+}
+if( -Not (Test-Path -LiteralPath ($installpath + "stable") ) ){
+	New-Item -Path $installpath -Name "stable" -ItemType "directory"
+}
+if( -Not (Test-Path -LiteralPath ($installpath + "latest") ) ){
+	New-Item -Path $installpath -Name "latest" -ItemType "directory"
+}
+
+if( $v -ne "latest" -and $v -ne "stable"){
+	Write-Host $v + " is not an option. Only 'latest' or 'stable'"
+	Exit 0
+}
+
+$previous = "stable"
+$type = "latestVersion"
+if( $v -eq "stable" ){
+	$previous = "latest"
+	$type = $v + "Version"
+}
+
+# Get requested version number
 $request = Invoke-WebRequest $repoUrl | ConvertFrom-Json
-$query = $request | Select -expand versioning | Select latestVersion
-$latestVersion = $query[0].latestVersion
-
-$url = 'https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/'+ $latestVersion +'/commandbox-jre-win64-'+ $latestVersion +'.zip'
-$sha256 = 'a741f617ddddf50eba6bd78ba28caff867a676faac451e3428229054e1a473ff'
-$dest = 'C:\users\daniel.mejia\downloads\box.zip'
-
-$zipfile = 'C:\users\daniel.mejia\downloads\' + $(Split-Path -Path $url -Leaf)
-# destination folder needs to exist.
-# TODO: if folder does not exist then mkdir
-# TODO: Choose a default installation folder or use environment variable
-# or script argument that overrides default folder.
-$extractpath = 'C:\users\daniel.mejia\downloads\commandbox-install\'
+$query = $request | Select -expand versioning 
+$version = $query.$type
+$zipfilename = "commandbox-jre-win64-" + $version + ".zip"
+$downloadUrl = $basezipurl + $version + "/" + $zipfilename
 
 echo "Downloading..."
 # without $progressPreference the download will actually take a lot longer. 
 # set silentlyContinue to remove the progress bar which slows the download.
-$global:ProgressPreference = 'silentlyContinue'
-Invoke-WebRequest -Uri $url -OutFile $zipfile
-echo "Done"
-echo ""
+$global:ProgressPreference = "silentlyContinue"
+Invoke-WebRequest -Uri $downloadUrl -OutFile ($downloadpath + $zipfilename)
+
+echo "Done" 
+echo "$zipfilename" 
 echo "Opening and Extracting..."
-Expand-Archive -LiteralPath $zipfile -Destinationpath $extractpath -Force
+
+Expand-Archive -LiteralPath ($downloadpath + $zipfilename) -DestinationPath ($installpath + $v) -Force
 # reset back to Continue so that other commands use the default progress bar
-$global:ProgressPreference = 'Continue'
+$global:ProgressPreference = "Continue"
 echo "Done"
-
-# TODO: create a uninstall script
-#
-# TODO: create install script for stable
-
-$BEfolder = "C:\Development\Tools\Commandbox\BE"
-$STABLEfolder = "C:\Development\Tools\Commandbox\STABLE"
 
 # Get current path
-$currentpath = [System.Environment]::GetEnvironmentVariable('PATH','Machine')
+$PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine")
 # Remove stable or be path
-$editedpath = ($currentpath.Split(';') | 
-	Where-Object { $_.trimEnd('\') -ne $STABLEfolder }) -join ';'
+$editedpath = ($PATH.Split(";") | 
+	Where-Object { $_.trimEnd("\") -ne ($installpath + $previous) }) -join ";"
 
 # Add stable or be path
-$newpath = $editedpath + $BEfolder
-[System.Environment]::SetEnvironmentVariable('PATH', $newpath, 'Machine')
+$NEWPATH = $editedpath + $installpath + $v
+[System.Environment]::SetEnvironmentVariable("PATH", $NEWPATH, "Machine")
 
