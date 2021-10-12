@@ -11,20 +11,19 @@ ForEach ($PackageName in $Packages)
 {choco install $PackageName -y}
 
 #Install Commandbox
-$commandboxhome = "C:\Development\Tools\Commandbox\"
+$commandboxhome = "C:/Commandbox/"
 $commandboxurl = "https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/5.4.2/commandbox-jre-win64-5.4.2.zip"
-Invoke-Request -Uri $commandboxurl -OutFile ($commandboxhome + "src.zip")
+Invoke-WebRequest -Uri $commandboxurl -OutFile ($commandboxhome + "src.zip")
 Expand-Archive -LiteralPath ($commandboxhome + "src.zip") -DestinationPath $commandboxhome -Force
-Delete-Item ($commandboxhome + "src.zip")
+Remove-Item ($commandboxhome + "src.zip")
 $PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine")
 $NEWPATH = $PATH + $commandbox 
 [System.Environment]::SetEnvironmentVariable("PATH", $NEWPATH, "Machine")
-"commandbox_home=$commandboxhome" | Out-File ($commandboxhome + "commandbox.properties")
+"-commandbox_home=$commandboxhome" | Out-File ($commandboxhome + "commandbox.properties")
 
 #Install Commandbox Dependencies
 #TODO: Service Manager ?
 C:\commandbox\box.exe install commandbox-cfconfig, commandbox-dotenv, commandbox-hostupdater
-
 
 #Clone Intranet
 git clone https://psomas@bitbucket.org/psomaswebteam/psomas-intranet.git E:\sites\intra.psomas.com
@@ -32,6 +31,14 @@ git clone https://psomas@bitbucket.org/psomaswebteam/psomas-intranet.git E:\site
 #Clone Api
 git clone https://psomas@bitbucket.org/psomaswebteam/intranet-api.git E:\sites\api.psomas.com
 
+#TODO: convert web.rewrites.xml server rules for undertow (native feature - predicate)
+
+#TODO: load environment variales
+
+#TODO: cfconfig import serverconfig.json
+
+#TODO: passwords for DB datasources, 
+# rotating db passwords? 
 
 #Create/Start site via service manager
 #service manager will use settings from server.json

@@ -10,10 +10,12 @@
             "dotfiles":"cd C:/Development/Tools/dotfiles",
             "gh":"!C:\\Development\\Tools\\gh\\bin\\gh.exe",
             "git":"!git",
+            "grecipe":"recipe C:/Development/Tools/dotfiles/recipes/",
             "intra":"cd C:/Development/sites/intra",
             "master":"git checkout master",
             "npm":"!npm",
             "npx":"!npx",
+            "nvim":"!nvim",
             "nvm":"!nvm",
             "play":"cd C:/Development/playground",
             "pm":"!pnpm",
@@ -47,6 +49,9 @@
             "statusSuccessBG":"green",
             "timeEnable":"false"
         },
+        "commandbox-cfconfig":{
+            "autoTransferOnUpgrade":"true"
+        },
         "oh-my-commandbox":{
             "addNewLine":"false",
             "enable":"false",
@@ -54,5 +59,6 @@
             "serverDepth":"5"
         }
     },
+    "server":"test",
     "verboseErrors":"true"
 }

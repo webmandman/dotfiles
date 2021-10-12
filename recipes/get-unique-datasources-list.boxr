@@ -1,0 +1,2 @@
+cat **.cf? | grep 'datasource="' | sed 's/.*datasource="([^"]*)".*/\1/i' | unique
+
