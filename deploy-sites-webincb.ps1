@@ -25,6 +25,13 @@ $NEWPATH = $PATH + $commandbox
 #TODO: Service Manager ?
 C:\commandbox\box.exe install commandbox-cfconfig, commandbox-dotenv, commandbox-hostupdater
 
+#Import config settings (cfconfig)
+#TODO: How do you import settings if server has been started before
+#cd E:\sites\intra.psomas.com 
+#C:\commandbox\box.exe cfconfig import serverconfig.json
+#cd E:\sites\api.psomas.com
+#C:\commandbox\box.exe cfconfig import serverconfig.json
+
 #Clone Intranet
 git clone https://psomas@bitbucket.org/psomaswebteam/psomas-intranet.git E:\sites\intra.psomas.com
 

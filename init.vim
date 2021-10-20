@@ -8,6 +8,12 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'itchyny/lightline.vim'
 call plug#end()
 
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
 colorscheme falcon
 
 set autoread
@@ -37,6 +43,7 @@ else
 endif
 
 " My custom key bindings
+nnoremap <silent>il :<c-u>norm!^vg_<CR>
 nnoremap <silent><C-h> :nohl<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>

@@ -2,6 +2,7 @@
     "command":{
         "aliases":{
             "add":"!git add --all",
+            "al":"config show command.aliases",
             "api":"cd C:/Development/sites/api",
             "choco":"!choco",
             "code":"!code",
@@ -13,6 +14,7 @@
             "grecipe":"recipe C:/Development/Tools/dotfiles/recipes/",
             "intra":"cd C:/Development/sites/intra",
             "master":"git checkout master",
+            "ngrok":"!ngrok",
             "npm":"!npm",
             "npx":"!npx",
             "nvim":"!nvim",
@@ -32,11 +34,21 @@
         "commandbox-banner-customizer":{
             "hideBanner":"true"
         },
+        "commandbox-bookmarks":{
+            "bookmarks":{
+                "glist":"git branch -l",
+                "intranet":"intra",
+                "isgooglealive":"!ping google.com",
+                "test":"!dir"
+            },
+            "lastcommand":"git diff CommandBox.json "
+        },
         "commandbox-bullet-train":{
             "addNewLine":"false",
             "boxVersionEnable":"false",
             "dirBG":"blue",
             "enable":"true",
+            "execTimeEnable":"false",
             "gitCleanBG":"green",
             "gitDepth":"7",
             "gitDirtyBG":"red",
@@ -46,6 +58,7 @@
             "serverBG":"white",
             "serverEnable":"true",
             "serverText":"magenta",
+            "statusEnable":"false",
             "statusSuccessBG":"green",
             "timeEnable":"false"
         },
