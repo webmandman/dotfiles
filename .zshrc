@@ -116,4 +116,5 @@ alias zshconfig="nvim ~/.zshrc"
 alias dotfiles="cd ~/dotfiles"
 
 #neovim path
-export PATH="$PATH:~/local/nvim/bin"
+export PATH="/home/udm/local/nvim/bin:$PATH"
+typeset -U PATH
