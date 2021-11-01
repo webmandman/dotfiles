@@ -74,6 +74,18 @@ To reimage or wipe all data from Ubuntu image reset the app from Add/Remove Prog
 15. Install Neovim, then edit the git config(next step)
 16. `git config -e`, and change url to  'https://username:passwordtoken@github.com....'
 
+** Installing Commandbox **
+
+Get avialable versions: `curl https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/box-repo.json`
+
+TODO: create shell script, same logic as installcommandbox.ps1 in dotfiles. Follow this tutorial (Shell Scripting)[https://www.shellscript.sh/]. ETA: 1 day.
+
+1. `curl -O https://s3.amazonaws.com/downloads.ortussolutions.com/ortussolutions/commandbox/5.5.0-alpha/commandbox-bin-5.5.0-alpha.zip`
+2. `unzip commandbox-bin-5.5.0-alpha.zip -d commandbox-be`
+3. `sudo mv commandbox-be/box /usr/local/bin`
+4. `sudo apt install openjdk-11-jdk`
+	- 250bm+ with all dependencies
+
 ** Building Neovim Nightly **
 
 (Building Neovim Docs)[https://github.com/neovim/neovim/wiki/Building-Neovim]
@@ -89,7 +101,7 @@ To reimage or wipe all data from Ubuntu image reset the app from Add/Remove Prog
 6. Install: `make CMAKE_INSTALL_PREFIX=$HOME/local/nvim install`
 7. Added to PATH via .zshrc(end of file)
 	- Perhaps consider default install location (/usr/local/bin) and skip 'make INSTALL PREFIX'
-8. Plug plugin manager: `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+8. Plug plugin manager: `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 9. `ln -s -d ~/dotfiles/nvim ~/.config/nvim
 10. startup neovim, and `:PlugInstall`, then finally restart neovim.
 
