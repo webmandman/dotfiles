@@ -35,3 +35,70 @@ This folder will contain all configuration files for vscode, neovim, and command
 ## OS Support
 
 * all configurations and scripts will support windows 10 and Ubuntu and MacOS, maybe even NixOS.
+
+
+## Ubuntu (running total 50 mins)
+
+** Install Ubuntu on WSL2 **
+
+[Manual Install Docs](https://docs.microsoft.com/en-us/windows/wsl/install-manual) or
+
+Any new installation will attempt to delete previous installations. Those files can not be in use - restart OS could do the trick.
+
+1. Powershell script: `Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing`
+2. Add-AppPackage .\Ubuntu.appx
+3. Or double-click the .appx file and it will launch a gui installer.
+
+** Apt Package Manager **
+
+Update the packages list `sudo apt update` everytime before installing a new package or atleast once a day. Most popular packages update on a daily basis.
+
+To reimage or wipe all data from Ubuntu image reset the app from Add/Remove Programs.
+
+** Installing All Tools **
+
+1. `git clone https://github.com/webmandman/dotfiles`
+2. `sudo apt update` to update local packages list and endpoints.
+3. `sudo apt-get install fonts-powerline`
+4. `sudo apt install zsh`
+5. `zsh --version`
+6. `chsh -s $(which zsh)`
+7. `git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh`
+8. `ln -s ~/dotfiles/.zshrc ~/.zshrc`
+9. `sudo apt install git-all`
+10. `sudo apt install tmux`
+11. `ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf`
+12. `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+13.	`tmux source ~/.tmux.conf`
+
+** Building Neovim Nightly **
+
+(Building Neovim Docs)[https://github.com/neovim/neovim/wiki/Building-Neovim]
+
+1. `sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen`
+2. `git clone https://github.com/neovim/neovim`
+3. `cd neovim`
+4. `make CMAKE_BUILD_TYPE=Release`. 
+	- Error 'rename failed - permission denied' - restarting Ubuntu should do it. 
+	- Build Type Options: Release, Debug, RelWithDebInfo
+	- Warning: Build Type was set as Release, however, :checkhealth says its Debug. Build command output shows this subcommand: `cd /home/udm/neovim/.deps && /usr/bin/cmake -E touch .third-party && cd build && cmake -G 'Ninja' -DCMAKE_BUILD_TYPE=Release`
+5. Verify: `./build/bin/nvim --version | grep ^Build`
+6. Install: `make CMAKE_INSTALL_PREFIX=$HOME/local/nvim install`
+7. Added to PATH via .zshrc(end of file)
+	- Perhaps consider default install location (/usr/local/bin) and skip 'make INSTALL PREFIX'
+8. Plug plugin manager: `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+9. `ln -s -d ~/dotfiles/nvim ~/.config/nvim
+10. startup neovim, and `:PlugInstall`, then finally restart neovim.
+
+Updating Neovim
+
+1. `make distclean` - deletes .deps and build
+2. `git pull`
+3. Continue with step 4 above.
+
+** Useful command **
+
+1. PATH, remove entry from end of path: `PATH=$(echo "$PATH" | sed -e 's/:~\/local\/nvim\/bin$//')`
+2. Symlink command format: ln -s TARGET LINK_NAME 
+3.
+

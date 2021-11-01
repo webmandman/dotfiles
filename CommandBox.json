@@ -2,6 +2,7 @@
     "command":{
         "aliases":{
             "add":"!git add --all",
+            "affected":"!git show --name-only --oneline",
             "al":"config show command.aliases",
             "api":"cd C:/Development/sites/api",
             "choco":"!choco",
@@ -11,8 +12,10 @@
             "dotfiles":"cd C:/Development/Tools/dotfiles",
             "gh":"!C:\\Development\\Tools\\gh\\bin\\gh.exe",
             "git":"!git",
+            "gl":"git branch -l",
             "grecipe":"recipe C:/Development/Tools/dotfiles/recipes/",
             "intra":"cd C:/Development/sites/intra",
+            "list":"git branch -l",
             "master":"git checkout master",
             "ngrok":"!ngrok",
             "npm":"!npm",
@@ -25,7 +28,9 @@
             "push":"!git push",
             "px":"!pnpx",
             "rmrf":"rm --recurse --force",
+            "s":"start",
             "sites":"cd C:/Development/sites",
+            "spell":"C:/Development/playground/webmandman-coldbox-docs/spell.bat",
             "to":"cd C:/Development/Tools",
             "vim":"!nvim"
         }
@@ -41,7 +46,7 @@
                 "isgooglealive":"!ping google.com",
                 "test":"!dir"
             },
-            "lastcommand":"git diff CommandBox.json "
+            "lastcommand":"q"
         },
         "commandbox-bullet-train":{
             "addNewLine":"false",
