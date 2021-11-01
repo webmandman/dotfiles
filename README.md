@@ -57,19 +57,22 @@ To reimage or wipe all data from Ubuntu image reset the app from Add/Remove Prog
 
 ** Installing All Tools **
 
-1. `git clone https://github.com/webmandman/dotfiles`
-2. `sudo apt update` to update local packages list and endpoints.
-3. `sudo apt-get install fonts-powerline`
-4. `sudo apt install zsh`
-5. `zsh --version`
-6. `chsh -s $(which zsh)`
-7. `git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh`
-8. `ln -s ~/dotfiles/.zshrc ~/.zshrc`
-9. `sudo apt install git-all`
+1. `sudo apt update` to update local packages list and endpoints.
+2. `sudo apt install git-all`
+3. `git clone https://github.com/webmandman/dotfiles`
+4. `sudo apt-get install fonts-powerline`
+5. `sudo apt install zsh`
+6. `zsh --version`
+7. `chsh -s $(which zsh)`
+8. `git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh`
+9. `ln -s ~/dotfiles/.zshrc ~/.zshrc`
 10. `sudo apt install tmux`
 11. `ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf`
 12. `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 13.	`tmux source ~/.tmux.conf`
+14. `export EDITOR="nvim"`
+15. Install Neovim, then edit the git config(next step)
+16. `git config -e`, and change url to  'https://username:passwordtoken@github.com....'
 
 ** Building Neovim Nightly **
 
@@ -96,7 +99,7 @@ Updating Neovim
 2. `git pull`
 3. Continue with step 4 above.
 
-** Useful command **
+** Useful commands **
 
 1. PATH, remove entry from end of path: `PATH=$(echo "$PATH" | sed -e 's/:~\/local\/nvim\/bin$//')`
 2. Symlink command format: ln -s TARGET LINK_NAME 
