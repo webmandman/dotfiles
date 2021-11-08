@@ -117,3 +117,8 @@ Updating Neovim
 2. Symlink command format: ln -s TARGET LINK_NAME 
 3.
 
+# Windows #
+
+** Useful Commands **
+
+1. Symlink command format: `New-Item -Path C:\LinkDir -ItemType SymbolicLink -Value F:\RealDir`

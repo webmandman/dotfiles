@@ -23,7 +23,7 @@
         }
     ],
     "location":"ForgeboxStorage",
-    "name":"My Package",
+    "name":"Oh My",
     "private":false,
     "projectURL":"",
     "repository":{
@@ -32,7 +32,7 @@
     },
     "scripts":{},
     "shortDescription":"A sweet package",
-    "slug":"my-package",
+    "slug":"ohmy",
     "testbox":{
         "bundles":"",
         "directory":"tests.specs",

@@ -1,16 +1,17 @@
 call plug#begin(stdpath('data') . '/plugged')
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 	Plug 'nvim-lua/completion-nvim'
+	Plug 'nvim-lua/plenary.nvim'
 	Plug 'fenetikm/falcon' " colorscheme
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'itchyny/lightline.vim'
+if has('unix')
 	Plug 'ThePrimeagen/vim-be-good'
-	Plug 'nvim-lua/plenary.nvim' " don't forget to add this one if you don't have it yet!
 	Plug 'nvim-lua/popup.nvim'
-	Plug 'ThePrimeagen/harpoon'
+	Plug 'ThePrimeagen/harpoon' " <--- causes errors
 	Plug 'tpope/vim-fugitive'
+endif
 call plug#end()
 
 " let g:netrw_banner = 0
@@ -26,7 +27,7 @@ set colorcolumn=80
 set completeopt=menuone,noinsert,noselect
 set hidden
 set linebreak
-au BufRead,BufNewFile *.md setlocal wrap
+au BufRead,BufNewFile *.md setlocal wrap "causing errors
 highlight clear SignColumn
 set mouse=a
 set number relativenumber
@@ -35,7 +36,6 @@ set nowrap
 set shiftwidth=4 tabstop=4 softtabstop=4
 set shortmess+=c
 set showtabline=0
-set termguicolors
 
 let mapleader = "\<space>"
 
@@ -54,12 +54,11 @@ nnoremap <leader>, :resize +15<CR>
 nnoremap <leader>. :resize -15<CR>
 nnoremap <leader><leader>, :vertical resize +15<CR>
 nnoremap <leader><leader>. :vertical resize -15<CR>
+nnoremap <leader>h <C-^><CR>
+nnoremap <leader>j :buffer1<CR>
+nnoremap <leader>k :buffer2<CR>
+nnoremap <leader>l :buffer3<CR>
 
-nnoremap <leader>j :lua require("harpoon.ui").nav_file(1)<CR>:
-nnoremap <leader>k :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>l :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>h :lua require("harpoon.mark").add_file()<CR>
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"

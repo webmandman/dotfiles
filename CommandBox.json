@@ -8,8 +8,9 @@
             "choco":"!choco",
             "code":"!code",
             "commit":"!git commit -m",
-            "dev":"cd C:/Development/playground",
             "dotfiles":"cd C:/Development/Tools/dotfiles",
+            "eb":"nvim C:/Development/Tools/dotfiles/CommandBox.json",
+            "ei":"nvim C:/Development/Tools/dotfiles/init.vim",
             "gh":"!C:\\Development\\Tools\\gh\\bin\\gh.exe",
             "git":"!git",
             "gl":"git branch -l",
@@ -22,17 +23,26 @@
             "npx":"!npx",
             "nvim":"!nvim",
             "nvm":"!nvm",
+            "ping":"!ping",
             "play":"cd C:/Development/playground",
             "pm":"!pnpm",
             "pull":"!git pull",
             "push":"!git push",
             "px":"!pnpx",
             "rmrf":"rm --recurse --force",
-            "s":"start",
             "sites":"cd C:/Development/sites",
             "spell":"C:/Development/playground/webmandman-coldbox-docs/spell.bat",
+            "ssh":"!ssh",
             "to":"cd C:/Development/Tools",
             "vim":"!nvim"
+        }
+    },
+    "endpoints":{
+        "forgebox":{
+            "APIToken":"8F9D2B13066958902DA1402B82CB26A2A14B6B285D3F1F8862C7F60B8ABA51CD346EEAA88F6B8E2DDD31F131DC4CAC0680D5AF0145E7964CA585E5B8D2B55363",
+            "tokens":{
+                "psomaswebmaster":"8F9D2B13066958902DA1402B82CB26A2A14B6B285D3F1F8862C7F60B8ABA51CD346EEAA88F6B8E2DDD31F131DC4CAC0680D5AF0145E7964CA585E5B8D2B55363"
+            }
         }
     },
     "modules":{
