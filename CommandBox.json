@@ -59,7 +59,7 @@
             "lastcommand":"q"
         },
         "commandbox-bullet-train":{
-            "addNewLine":"false",
+            "addNewLine":"true",
             "boxVersionEnable":"false",
             "dirBG":"blue",
             "enable":"true",
@@ -69,7 +69,7 @@
             "gitDirtyBG":"red",
             "packageEnable":"false",
             "promptChar":"",
-            "separateLine":"false",
+            "separateLine":"true",
             "serverBG":"white",
             "serverEnable":"true",
             "serverText":"magenta",
