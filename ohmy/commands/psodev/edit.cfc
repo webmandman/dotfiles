@@ -1,6 +1,6 @@
 component extends="commandbox.system.BaseCommand" {
 	function run( editor='EDITOR' ){
-		var trycfc = 'C:/Development/Tools/dotfiles/ohmy/commands/psodev/try.cfc';
+		var trycfc = 'C:/Development/Tools/dotfiles/ohmy/commands/psodev/';
 
 		if( editor == 'EDITOR' ){
 			// open file in default $EDITOR

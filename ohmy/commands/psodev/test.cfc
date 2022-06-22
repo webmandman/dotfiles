@@ -1,7 +1,5 @@
 component {
 	function run(){
-		command( '!dir' )
-			.run();
-
+		print.redline({'show':{'me':{}}})
 	}
 }

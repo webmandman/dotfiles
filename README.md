@@ -122,3 +122,20 @@ Updating Neovim
 ** Useful Commands **
 
 1. Symlink command format: `New-Item -Path C:\LinkDir -ItemType SymbolicLink -Value F:\RealDir`
+
+** IIS SSL/TLS **
+
+Scan computer to see current settings:
+
+1. `choco install sslscan`
+2. `sslscan <WEB_SERVER_IP>`
+
+Make TLS Changes
+
+1. `choco install iiscryptocli`
+2. `iiscryptocli /backup servertlsbackup`
+3. `iiscryptocli /template best`
+4. restart computer
+
+
+

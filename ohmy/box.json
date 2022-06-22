@@ -3,7 +3,9 @@
     "bugs":"",
     "changelog":"",
     "contributors":[],
-    "dependencies":{},
+    "dependencies":{
+        "hyper":"^3.4.2"
+    },
     "description":"",
     "devDependencies":{},
     "documentation":"",
@@ -13,7 +15,9 @@
         "/test/",
         "/tests/"
     ],
-    "installPaths":{},
+    "installPaths":{
+        "hyper":"modules/hyper/"
+    },
     "instructions":"",
     "keywords":[],
     "license":[

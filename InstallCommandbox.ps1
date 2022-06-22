@@ -1,5 +1,8 @@
 #Requires -RunAsAdministrator
 
+## set appropiate rights to run powershell commands and admin install rights
+Set-ExecutionPolicy Bypass -Scope Process -Force; 
+
 # set the version based on default or argument passed in
 param ($v="latest")
 

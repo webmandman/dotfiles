@@ -5,24 +5,30 @@
             "affected":"!git show --name-only --oneline",
             "al":"config show command.aliases",
             "api":"cd C:/Development/sites/api",
+            "aw":"cd C:/Development/sites/intra/angularworkspace",
             "choco":"!choco",
             "code":"!code",
             "commit":"!git commit -m",
             "dotfiles":"cd C:/Development/Tools/dotfiles",
             "eb":"nvim C:/Development/Tools/dotfiles/CommandBox.json",
             "ei":"nvim C:/Development/Tools/dotfiles/init.vim",
-            "gh":"!C:\\Development\\Tools\\gh\\bin\\gh.exe",
+            "expo":"!expo",
             "git":"!git",
             "gl":"git branch -l",
-            "grecipe":"recipe C:/Development/Tools/dotfiles/recipes/",
+            "gstatus":"!git status -s | while read mode file; do echo $mode $(date --reference=$file +\"%Y-%m-%d %H:%M:%S\") $file; done",
+            "gulp":"!gulp",
+            "gundo":"!git reset --keep HEAD@{1}",
             "intra":"cd C:/Development/sites/intra",
             "list":"git branch -l",
-            "master":"git checkout master",
+            "main":"git checkout main",
+            "master":"git checkout main",
             "ngrok":"!ngrok",
             "npm":"!npm",
             "npx":"!npx",
             "nvim":"!nvim",
             "nvm":"!nvm",
+            "nx":"!nx",
+            "nxwork":"cd C:/Development/sites/intra/nxworkspace",
             "ping":"!ping",
             "play":"cd C:/Development/playground",
             "pm":"!pnpm",
@@ -33,15 +39,17 @@
             "sites":"cd C:/Development/sites",
             "spell":"C:/Development/playground/webmandman-coldbox-docs/spell.bat",
             "ssh":"!ssh",
-            "to":"cd C:/Development/Tools",
+            "sslscan":"!sslscan",
+            "start":"server start --trace --console",
+            "tools":"cd C:/Development/Tools",
             "vim":"!nvim"
         }
     },
     "endpoints":{
         "forgebox":{
-            "APIToken":"8F9D2B13066958902DA1402B82CB26A2A14B6B285D3F1F8862C7F60B8ABA51CD346EEAA88F6B8E2DDD31F131DC4CAC0680D5AF0145E7964CA585E5B8D2B55363",
+            "APIToken":"4B14F9C3B0BAE22BE544E74A9102B06430356DCAA4C61028301934DCE882CE521880648271965479C717E80894B71304FBB7AFF10DA193451401D653742187A1",
             "tokens":{
-                "psomaswebmaster":"8F9D2B13066958902DA1402B82CB26A2A14B6B285D3F1F8862C7F60B8ABA51CD346EEAA88F6B8E2DDD31F131DC4CAC0680D5AF0145E7964CA585E5B8D2B55363"
+                "webmandman":"4B14F9C3B0BAE22BE544E74A9102B06430356DCAA4C61028301934DCE882CE521880648271965479C717E80894B71304FBB7AFF10DA193451401D653742187A1"
             }
         }
     },
@@ -59,26 +67,58 @@
             "lastcommand":"q"
         },
         "commandbox-bullet-train":{
-            "addNewLine":"true",
             "boxVersionEnable":"false",
+            "customEnable":"false",
             "dirBG":"blue",
             "enable":"true",
             "execTimeEnable":"false",
             "gitCleanBG":"green",
-            "gitDepth":"7",
+            "gitDepth":"5",
             "gitDirtyBG":"red",
+            "gitTimeoutMS":"1700",
             "packageEnable":"false",
-            "promptChar":"",
-            "separateLine":"true",
             "serverBG":"white",
+            "serverDepth":"4",
             "serverEnable":"true",
-            "serverText":"magenta",
+            "serverText":"red",
             "statusEnable":"false",
             "statusSuccessBG":"green",
             "timeEnable":"false"
         },
         "commandbox-cfconfig":{
             "autoTransferOnUpgrade":"true"
+        },
+        "commandbox-navigate":{
+            "history":[
+                "C:\\Development\\Tools\\dotfiles\\",
+                "C:\\Development\\sites\\intra\\nxworkspace\\",
+                "C:\\Development\\sites\\intra\\",
+                "C:\\Development\\sites\\intra\\login\\",
+                "C:\\Development\\sites\\intra\\nxworkspace\\",
+                "C:\\Development\\sites\\intra\\",
+                "C:\\Development\\Tools\\dotfiles\\ohmy\\",
+                "C:\\Development\\Tools\\dotfiles\\",
+                "C:\\Development\\Tools\\dotfiles\\ohmy\\",
+                "C:\\Development\\Tools\\dotfiles\\",
+                "C:\\Development\\playground\\nxworkspace\\psomastest\\",
+                "C:\\Development\\playground\\",
+                "C:\\Development\\sites\\intra\\",
+                "C:\\Development\\sites\\api\\",
+                "C:\\Development\\Tools\\dotfiles\\ohmy\\",
+                "C:\\Development\\Tools\\dotfiles\\",
+                "C:\\Development\\Tools\\",
+                "C:\\Development\\playground\\oh-my-commandbox\\",
+                "C:\\Development\\playground\\",
+                "C:\\Development\\playground\\oh-my-commandbox\\",
+                "C:\\Development\\playground\\",
+                "C:\\Users\\daniel.mejia\\.CommandBox\\cfml\\modules\\",
+                "C:\\Users\\daniel.mejia\\.CommandBox\\",
+                "C:\\Users\\daniel.mejia\\",
+                "C:\\Development\\sites\\intra\\nxworkspace\\",
+                "C:\\Development\\sites\\intra\\"
+            ],
+            "historyIndex":1,
+            "historyMax":25
         },
         "oh-my-commandbox":{
             "addNewLine":"false",
@@ -87,6 +127,6 @@
             "serverDepth":"5"
         }
     },
-    "server":"test",
+    "tabCompleteInline":"true",
     "verboseErrors":"true"
 }

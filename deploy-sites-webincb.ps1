@@ -38,8 +38,6 @@ git clone https://psomas@bitbucket.org/psomaswebteam/psomas-intranet.git E:\site
 #Clone Api
 git clone https://psomas@bitbucket.org/psomaswebteam/intranet-api.git E:\sites\api.psomas.com
 
-#TODO: convert web.rewrites.xml server rules for undertow (native feature - predicate)
-
 #TODO: load environment variales
 
 #TODO: cfconfig import serverconfig.json

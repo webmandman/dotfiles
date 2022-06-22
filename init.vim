@@ -22,6 +22,7 @@ call plug#end()
 
 colorscheme falcon
 
+set fileformat=dos
 set autoread
 set colorcolumn=80
 set completeopt=menuone,noinsert,noselect
