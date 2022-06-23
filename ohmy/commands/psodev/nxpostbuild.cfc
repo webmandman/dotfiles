@@ -1,26 +1,48 @@
 component extends="commandbox.system.BaseCommand" {
 
 	function run( required string appname ){
-
+		
+		print.greenLine( "+++++++ Running Nx Post Build on: #appname# +++++++");
 		// get cwd, should be run from nxworkspace root
 		var cwd = getCWD();
+
+		var test = reMatch('nxworkspace', cwd);
+
+		
+
 
 		// get app output path   
 		// TODO: this returns carriage return at end of output. 
 		// contribute to commandbox by fixing this bug.
+
+		try {
 		var apppath = command( 'jq' )
 			.params( 
 				cwd & 'workspace.json', 
 				'projects.' & arguments.appname )
 			.run( returnOutput=true );
 
+		 } catch (any exception) {
+			print.redline( "App not found, your probably in wrong parent folder");
+			return
+		 }
+
+		
+		
+
 		apppath = fileSystemUtil.normalizeSlashes(trim(cwd & apppath));
 
+
+		try {
 		var appOutputPath = command( 'jq' )
 			.params( 
 				apppath & '\project.json', 
 				'targets.build.options.outputPath' )
 			.run( returnOutput=true );
+		} catch (any exception) {
+			print.redline("Build destination not found");
+			return
+		}
 
 		appOutputPath = resolvePath(fileSystemUtil.normalizeSlashes(trim(appOutputPath)));
 
@@ -38,7 +60,9 @@ component extends="commandbox.system.BaseCommand" {
 		command( 'ls' )
 			.params( appOutputPath )
 			.run();
-		
+
+		print.greenline( "+++++++++ Success ++++++++++")
+		print.greenline( "renamed: index.html and added Application.cfc")
 	}
 }
  
