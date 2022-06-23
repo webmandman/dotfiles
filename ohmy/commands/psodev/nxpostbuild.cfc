@@ -6,15 +6,15 @@ component extends="commandbox.system.BaseCommand" {
 		// get cwd, should be run from nxworkspace root
 		var cwd = getCWD();
 
-		var test = reMatch('nxworkspace', cwd);
-
 		
 
-
+	
 		// get app output path   
 		// TODO: this returns carriage return at end of output. 
 		// contribute to commandbox by fixing this bug.
 
+
+		// gives error if it can't find folder
 		try {
 		var apppath = command( 'jq' )
 			.params( 
@@ -32,7 +32,7 @@ component extends="commandbox.system.BaseCommand" {
 
 		apppath = fileSystemUtil.normalizeSlashes(trim(cwd & apppath));
 
-
+		//gives error if it can't find output path
 		try {
 		var appOutputPath = command( 'jq' )
 			.params( 
