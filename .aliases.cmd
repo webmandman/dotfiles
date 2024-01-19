@@ -18,3 +18,6 @@ DOSKEY api=cd C:\Development\sites\psomas-api
 DOSKEY play=cd C:\Development\playground
 DOSKEY sites=cd C:\Development\sites
 DOSKEY home=cd C:\users\daniel.mejia
+
+DOSKEY nup=wsl -d NixOS
+DOSKEY ndown=wdl -t NixOS 
