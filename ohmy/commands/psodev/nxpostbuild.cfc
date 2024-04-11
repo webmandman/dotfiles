@@ -23,14 +23,17 @@ component extends="commandbox.system.BaseCommand" {
 			.run( returnOutput=true );
 
 		 } catch (any exception) {
-			print.redline( "App not found, your probably in wrong parent folder");
+			print.redline( "NX Workspace not found, your probably in wrong parent folder");
 			return
 		 }
 
 		
-		
+		 print.line("App Path: " & appname);
+		print.line("App Path: " & cwd);
+		print.line("App Path: " & apppath);
 
 		apppath = fileSystemUtil.normalizeSlashes(trim(cwd & apppath));
+
 
 		//gives error if it can't find output path
 		try {
@@ -40,7 +43,7 @@ component extends="commandbox.system.BaseCommand" {
 				'targets.build.options.outputPath' )
 			.run( returnOutput=true );
 		} catch (any exception) {
-			print.redline("Build destination not found");
+			print.redline("App not found");
 			return
 		}
 

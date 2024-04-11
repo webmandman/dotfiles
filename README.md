@@ -1,3 +1,38 @@
+# Dotfiles and Development Environment 
+
+WSL NixOs, Neovim, Zsh, Commandbox, Windows Terminal, Powershell, Cmd, VsCode. 
+
+1. Install chocolatey
+2. Install zLocation (equivelant to zoxide)
+   - `Install-Module ZLocation -Scope CurrentUser; Import-Module ZLocation; Add-Content -Value "`r`n`r`nImport-Module ZLocation`r`n" -Encoding utf8 -Path $PROFILE.CurrentUserAllHosts`
+   - use `z` like you would `cd` and it will keep track of all your visited paths
+1. install oh-my-posh, neovim
+   - `choco install neovim oh-my-posh`
+1. Symlink the Powershell Config (aliases, oh-my-posh, zoxide)
+   - New-Item -Path 'C:\Users\daniel.mejia\OneDrive - Psomas\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\Microsoft.PowerShell_profile.ps1'
+1. Symlink the WHKD Config (global keybindings)
+   - New-Item -Path 'C:\Users\daniel.mejia\.config\whkdrc' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\whkdrc'
+1. Install/Enable WSL 2 
+2. Download installer from https://github.com/nix-community/NixOS-WSL
+3. `wsl --import <name-your-os> .\NixOS\ nixos-wsl.tar.gz --version 2`
+4. Use powershell alias `nup` to enter distro `wsl -d <name-your-os>`
+5. Follow instructions from https://github.com/webmandman/nixos-wsl-starter
+    - Original repo comes with lunarvim, remove from home.nix config. 
+6. 
+
+
+## Powershell
+
+-- .dotfiles/Microsoft.Powershell_profile.ps1
+
+This config files contains powershell aliases, oh-my-posh prompt, and zoxide (which has issues remembering my directories)
+
+
+
+-----------------------------------------------------------------
+Everything below this line is my old way of setting up my dev env 
+-----------------------------------------------------------------
+
 # Development Environment Configuration
 
 ## Dotfiles

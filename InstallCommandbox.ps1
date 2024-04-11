@@ -64,4 +64,3 @@ $editedpath = ($PATH.Split(";") |
 # Add stable or be path
 $NEWPATH = $editedpath + $installpath + $v
 [System.Environment]::SetEnvironmentVariable("PATH", $NEWPATH, "Machine")
-
