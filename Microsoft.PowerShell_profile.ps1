@@ -55,9 +55,3 @@ function keys(){
   $keysasciipath = "$env:USERPROFILE\.dotfiles\keysascii.txt"
   Get-Content -raw $keysasciipath | Write-Host
 }
-
-function gs(){ git status }
-
-function gpl(){ git pull }
-
-function gps(){ git push }
