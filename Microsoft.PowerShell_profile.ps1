@@ -1,15 +1,7 @@
 write-output '~\.dotfiles\Microsoft.Powershell_profile.ps1 loaded'
 
-# Set-Alias play 'cd C:\Development\playground'
-# Set-Alias intra 'cd C:\Development\Sites\psomas-intranet'
-# Set-Alias api 'cd C:\Development\Sites\psomas-api'
-# Set-Alias nup 'wsl -d NixOS'
-# Set-Alias ndown 'wsl -t NixOS'
-
+# terminal prompt feature and themes
 oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\AppData\Local\Programs\oh-my-posh\themes\star.omp.json' | Invoke-Expression
-
-# TODO: delete this application then remove this line
-# $Env:KOMOREBI_CONFIG_HOME = 'C:\Users\LGUG2Z\.config\komorebi'
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -21,6 +13,7 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+# NOTE No more set-alias used here since ZLocation module handles shortcuts for everything
 Import-Module ZLocation
 
 # Komorebi restart custom command
@@ -28,23 +21,13 @@ function kstart(){
   # $komorebi = Get-Process komorebi
   # Remove-Variable komorebi
 
-  if ( (get-Process komorebi -ea silentlycontinue) -ne $null ) { 
-    komorebic stop
-    echo "komorebic stopped..."
-  }
+  # if ( (get-Process komorebi -ea silentlycontinue) -ne $null ) { 
+  #  komorebic stop --whkd
+  #  echo "komorebic and whkd stopped..."
+  # }
 
   komorebic start --whkd
-  echo "komorebic started..."
-}
-
-# Open nvim to edit whkd hotkeys
-
-function editkeys(){
-  nvim "$env:USERPROFILE\.config\whkdrc"
-}
-
-function editnvim(){
-  nvim "$env:USERPROFILE\AppData\Local\nvim\init.lua"
+  echo "komorebic and whkd started...only run once after restarting pc, or make sure all processes for whkd are stopped and same for komorebic."
 }
 
 function editdotfiles(){
@@ -54,4 +37,20 @@ function editdotfiles(){
 function keys(){
   $keysasciipath = "$env:USERPROFILE\.dotfiles\keysascii.txt"
   Get-Content -raw $keysasciipath | Write-Host
+}
+
+function gits(){
+  git status
+}
+
+function gitc {
+  param(
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [String[]] $message
+  )
+  git status
+  git add .
+  git commit -a -m "$message"
+  git push 
+  git status
 }

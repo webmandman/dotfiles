@@ -8,6 +8,7 @@
   "border_padding": 0,
   "border_offset": 0,
   "active_window_border": true,
+  "active_window_border_style": "Rounded",
   "active_window_border_colours": {
     "single": "#4c2b7a",
     "stack": "#4c2b7a",
@@ -17,16 +18,46 @@
   "monitors": [
     {
       "workspaces": [
-        { "name": "1", "layout": "BSP" },
-        { "name": "2", "layout": "BSP" },
-        { "name": "3", "layout": "BSP" },
-        { "name": "4", "layout": "BSP" },
-        { "name": "5", "layout": "BSP" },
-        { "name": "6", "layout": "BSP" },
-        { "name": "7", "layout": "BSP" },
-        { "name": "8", "layout": "BSP" },
-        { "name": "9", "layout": "BSP" },
-        { "name": "10", "layout": "BSP" }
+        {
+          "name": "1",
+          "layout": "BSP"
+        },
+        {
+          "name": "2",
+          "layout": "BSP"
+        },
+        {
+          "name": "3",
+          "layout": "BSP"
+        },
+        {
+          "name": "4",
+          "layout": "BSP"
+        },
+        {
+          "name": "5",
+          "layout": "BSP"
+        },
+        {
+          "name": "6",
+          "layout": "BSP"
+        },
+        {
+          "name": "7",
+          "layout": "BSP"
+        },
+        {
+          "name": "8",
+          "layout": "BSP"
+        },
+        {
+          "name": "9",
+          "layout": "BSP"
+        },
+        {
+          "name": "10",
+          "layout": "BSP"
+        }
       ]
     }
   ]
