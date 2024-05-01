@@ -52,5 +52,4 @@ function gitc {
   git add .
   git commit -a -m "$message"
   git push 
-  git status
 }
