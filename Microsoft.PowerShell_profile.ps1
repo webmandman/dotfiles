@@ -16,18 +16,21 @@ if (Test-Path($ChocolateyProfile)) {
 # NOTE No more set-alias used here since ZLocation module handles shortcuts for everything
 Import-Module ZLocation
 
+# Komorebi stop 
+function kstop(){
+  stop-process -name:whkd
+  stop-process -name:whkd
+  stop-process -name:komorebi
+  stop-process -name:komorebi
+}
 # Komorebi restart custom command
 function kstart(){
-  # $komorebi = Get-Process komorebi
-  # Remove-Variable komorebi
-
-  # if ( (get-Process komorebi -ea silentlycontinue) -ne $null ) { 
-  #  komorebic stop --whkd
-  #  echo "komorebic and whkd stopped..."
-  # }
-
   komorebic start --whkd
-  echo "komorebic and whkd started...only run once after restarting pc, or make sure all processes for whkd are stopped and same for komorebic."
+  echo "komorebic and whkd started...only run once after restarting pc, or make sure all processes for whkd and komorebic are stopped before starting up again. Use custom function 'kstop' in pwsh to stop both processes."
+}
+
+function kultra([int] $monitor = 0, [int] $workspace = 0) {
+  komorebic workspace-layout $monitor $workspace ultrawide-vertical-stack
 }
 
 function editdotfiles(){
@@ -39,7 +42,7 @@ function keys(){
   Get-Content -raw $keysasciipath | Write-Host
 }
 
-function gits(){
+function gs(){
   git status
 }
 
@@ -52,4 +55,8 @@ function gitc {
   git add .
   git commit -a -m "$message"
   git push 
+}
+
+function bl {
+  C:\Development\Tools\boxlang\jdk\jdk\bin\java.exe -jar C:\Development\Tools\boxlang\lib\boxlang-1.0.0-all.jar
 }
