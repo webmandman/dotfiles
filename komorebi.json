@@ -3,60 +3,73 @@
   "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 35,
-  "default_container_padding": 35,
+  "default_float_width": 600,
+  "default_float_heigth": 650,
+  "default_workspace_padding": 10,
+  "default_container_padding": 45,
   "border_padding": 0,
   "border_offset": 0,
   "active_window_border": true,
   "active_window_border_style": "Rounded",
   "active_window_border_colours": {
     "single": "#4c2b7a",
-    "stack": "#4c2b7a",
-    "monocle": "#4c2b7a"
+    "stack": "#40ff00",
+    "monocle": "#bf00ff"
   },
   "border_width": 3,
   "monitors": [
     {
       "workspaces": [
         {
-          "name": "1",
+          "name": "Work",
+          "layout": "Columns"
+        },
+        {
+          "name": "Comms",
+          "layout": "Columns",
+          "workspace_rules": [
+            {
+              "id": "Taskmgr.exe",
+              "kind": "Exe"
+            },
+            {
+              "id": "slack.exe",
+              "kind": "Exe"
+            },
+            {
+              "id": "ms-teams.exe",
+              "kind": "Exe"
+            },
+            {
+              "id": "olk.exe",
+              "kind": "Exe"
+            }
+          ]
+        },
+        {
+          "name": "Fun",
           "layout": "BSP"
         },
         {
-          "name": "2",
-          "layout": "BSP"
-        },
-        {
-          "name": "3",
-          "layout": "BSP"
-        },
-        {
-          "name": "4",
-          "layout": "BSP"
+          "name": "Free",
+          "workspace_rules": [
+            {
+              "id": "GoPro Player.exe",
+              "kind": "Exe"
+            },
+            {
+              "id": "Taskmgr.exe",
+              "kind": "Exe"
+            }
+          ]
         },
         {
           "name": "5",
-          "layout": "BSP"
+          "layout": "Columns"
         },
         {
           "name": "6",
-          "layout": "BSP"
-        },
-        {
-          "name": "7",
-          "layout": "BSP"
-        },
-        {
-          "name": "8",
-          "layout": "BSP"
-        },
-        {
-          "name": "9",
-          "layout": "BSP"
-        },
-        {
-          "name": "10",
-          "layout": "BSP"
+          "layout": "Columns"
         }
       ]
     }

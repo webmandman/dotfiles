@@ -1,7 +1,7 @@
 write-output '~\.dotfiles\Microsoft.Powershell_profile.ps1 loaded'
 
 # terminal prompt feature and themes
-oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\AppData\Local\Programs\oh-my-posh\themes\star.omp.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\AppData\Local\Programs\oh-my-posh\themes\dracula.omp.json' | Invoke-Expression
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -18,19 +18,36 @@ Import-Module ZLocation
 
 # Komorebi stop 
 function kstop(){
-  stop-process -name:whkd
-  stop-process -name:whkd
-  stop-process -name:komorebi
-  stop-process -name:komorebi
+  komorebic stop --whkd --bar
 }
 # Komorebi restart custom command
 function kstart(){
-  komorebic start --whkd
+  komorebic start --whkd --bar
   echo "komorebic and whkd started...only run once after restarting pc, or make sure all processes for whkd and komorebic are stopped before starting up again. Use custom function 'kstop' in pwsh to stop both processes."
 }
 
 function kultra([int] $monitor = 0, [int] $workspace = 0) {
   komorebic workspace-layout $monitor $workspace ultrawide-vertical-stack
+}
+
+function play(){
+  cd C:\Development\Playground\
+}
+
+function sites(){
+  cd C:\Development\Sites\
+}
+
+function api(){
+  cd C:\Development\Sites\psomas-api 
+}
+
+function intra(){
+  cd C:\Development\Sites\psomas-intranet 
+}
+
+function tools(){
+  cd C:\Development\Tools\
 }
 
 function editdotfiles(){
@@ -58,5 +75,10 @@ function gitc {
 }
 
 function bl {
-  C:\Development\Tools\boxlang\jdk\jdk\bin\java.exe -jar C:\Development\Tools\boxlang\lib\boxlang-1.0.0-all.jar
+  C:\Development\Tools\boxlang\jdk\21\bin\java.exe -jar C:\Development\Tools\boxlang\lib\boxlang-1.0.0-all.jar
 }
+
+function cftranspile {
+  C:\Development\Tools\boxlang\jdk\21\bin\java.exe -cp C:\Development\Tools\boxlang\lib\boxlang-1.0.0-all.jar ortus.boxlang.compiler.CFTranspiler 
+}
+

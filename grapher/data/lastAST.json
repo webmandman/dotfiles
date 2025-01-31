@@ -1,0 +1,396 @@
+{
+  "ASTType" : "BoxTemplate",
+  "ASTPackage" : "ortus.boxlang.compiler.ast",
+  "sourceText" : "<bx:query datasource=\"webteam\" name=\"qry\">\r\n            select * from mytable\r\n        </bx:query>\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Hello World Github Container Test</title>\r\n    <style>\r\n        body {\r\n            margin: 0;\r\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r\n            color: #fff;\r\n        }\r\n\r\n        .container {\r\n            text-align: center;\r\n            background: rgba(255, 255, 255, 0.1);\r\n            padding: 40px 20px;\r\n            border-radius: 15px;\r\n            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);\r\n            backdrop-filter: blur(10px);\r\n        }\r\n\r\n        h1 {\r\n            font-size: 2.5em;\r\n            margin: 0;\r\n            color: #fff;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"container\">\r\n        <h1>Hello World Github Container Test</h1>\r\n        <p>The current date and time is <bx:output>#DateTimeFormat(now(),'full','PST')#</bx:output></p>\r\n        \r\n    </div>\r\n</body>\r\n</html>\r\n\r\n",
+  "position" : {
+    "start" : {
+      "line" : 1,
+      "column" : 0
+    },
+    "end" : {
+      "line" : 48,
+      "column" : 5
+    }
+  },
+  "comments" : [ ],
+  "statements" : [ {
+    "ASTType" : "BoxComponent",
+    "ASTPackage" : "ortus.boxlang.compiler.ast.statement.component",
+    "sourceText" : "<bx:query datasource=\"webteam\" name=\"qry\">\r\n            select * from mytable\r\n        </bx:query>",
+    "position" : {
+      "start" : {
+        "line" : 1,
+        "column" : 0
+      },
+      "end" : {
+        "line" : 3,
+        "column" : 19
+      }
+    },
+    "comments" : [ ],
+    "name" : "query",
+    "attributes" : [ {
+      "ASTType" : "BoxAnnotation",
+      "ASTPackage" : "ortus.boxlang.compiler.ast.statement",
+      "sourceText" : "datasource=\"webteam\"",
+      "position" : {
+        "start" : {
+          "line" : 1,
+          "column" : 10
+        },
+        "end" : {
+          "line" : 1,
+          "column" : 30
+        }
+      },
+      "comments" : [ ],
+      "key" : {
+        "ASTType" : "BoxFQN",
+        "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+        "sourceText" : "datasource",
+        "position" : {
+          "start" : {
+            "line" : 1,
+            "column" : 10
+          },
+          "end" : {
+            "line" : 1,
+            "column" : 20
+          }
+        },
+        "comments" : [ ],
+        "value" : "datasource"
+      },
+      "value" : {
+        "ASTType" : "BoxStringLiteral",
+        "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+        "sourceText" : "\"webteam\"",
+        "position" : {
+          "start" : {
+            "line" : 1,
+            "column" : 21
+          },
+          "end" : {
+            "line" : 1,
+            "column" : 30
+          }
+        },
+        "comments" : [ ],
+        "value" : "webteam"
+      }
+    }, {
+      "ASTType" : "BoxAnnotation",
+      "ASTPackage" : "ortus.boxlang.compiler.ast.statement",
+      "sourceText" : "name=\"qry\"",
+      "position" : {
+        "start" : {
+          "line" : 1,
+          "column" : 31
+        },
+        "end" : {
+          "line" : 1,
+          "column" : 41
+        }
+      },
+      "comments" : [ ],
+      "key" : {
+        "ASTType" : "BoxFQN",
+        "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+        "sourceText" : "name",
+        "position" : {
+          "start" : {
+            "line" : 1,
+            "column" : 31
+          },
+          "end" : {
+            "line" : 1,
+            "column" : 35
+          }
+        },
+        "comments" : [ ],
+        "value" : "name"
+      },
+      "value" : {
+        "ASTType" : "BoxStringLiteral",
+        "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+        "sourceText" : "\"qry\"",
+        "position" : {
+          "start" : {
+            "line" : 1,
+            "column" : 36
+          },
+          "end" : {
+            "line" : 1,
+            "column" : 41
+          }
+        },
+        "comments" : [ ],
+        "value" : "qry"
+      }
+    } ],
+    "body" : [ {
+      "ASTType" : "BoxBufferOutput",
+      "ASTPackage" : "ortus.boxlang.compiler.ast.statement",
+      "sourceText" : "\r\n            select * from mytable\r\n        ",
+      "position" : {
+        "start" : {
+          "line" : 1,
+          "column" : 42
+        },
+        "end" : {
+          "line" : 1,
+          "column" : 87
+        }
+      },
+      "comments" : [ ],
+      "expression" : {
+        "ASTType" : "BoxStringLiteral",
+        "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+        "sourceText" : "\r\n            select * from mytable\r\n        ",
+        "position" : {
+          "start" : {
+            "line" : 1,
+            "column" : 42
+          },
+          "end" : {
+            "line" : 1,
+            "column" : 87
+          }
+        },
+        "comments" : [ ],
+        "value" : "\r\n            select * from mytable\r\n        "
+      }
+    } ]
+  }, {
+    "ASTType" : "BoxBufferOutput",
+    "ASTPackage" : "ortus.boxlang.compiler.ast.statement",
+    "sourceText" : "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Hello World Github Container Test</title>\r\n    <style>\r\n        body {\r\n            margin: 0;\r\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r\n            color: #fff;\r\n        }\r\n\r\n        .container {\r\n            text-align: center;\r\n            background: rgba(255, 255, 255, 0.1);\r\n            padding: 40px 20px;\r\n            border-radius: 15px;\r\n            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);\r\n            backdrop-filter: blur(10px);\r\n        }\r\n\r\n        h1 {\r\n            font-size: 2.5em;\r\n            margin: 0;\r\n            color: #fff;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"container\">\r\n        <h1>Hello World Github Container Test</h1>\r\n        <p>The current date and time is ",
+    "position" : {
+      "start" : {
+        "line" : 3,
+        "column" : 19
+      },
+      "end" : {
+        "line" : 42,
+        "column" : 40
+      }
+    },
+    "comments" : [ ],
+    "expression" : {
+      "ASTType" : "BoxStringLiteral",
+      "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+      "sourceText" : "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Hello World Github Container Test</title>\r\n    <style>\r\n        body {\r\n            margin: 0;\r\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r\n            color: #fff;\r\n        }\r\n\r\n        .container {\r\n            text-align: center;\r\n            background: rgba(255, 255, 255, 0.1);\r\n            padding: 40px 20px;\r\n            border-radius: 15px;\r\n            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);\r\n            backdrop-filter: blur(10px);\r\n        }\r\n\r\n        h1 {\r\n            font-size: 2.5em;\r\n            margin: 0;\r\n            color: #fff;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"container\">\r\n        <h1>Hello World Github Container Test</h1>\r\n        <p>The current date and time is ",
+      "position" : {
+        "start" : {
+          "line" : 3,
+          "column" : 19
+        },
+        "end" : {
+          "line" : 42,
+          "column" : 40
+        }
+      },
+      "comments" : [ ],
+      "value" : "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Hello World Github Container Test</title>\r\n    <style>\r\n        body {\r\n            margin: 0;\r\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\r\n            display: flex;\r\n            justify-content: center;\r\n            align-items: center;\r\n            height: 100vh;\r\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\r\n            color: #fff;\r\n        }\r\n\r\n        .container {\r\n            text-align: center;\r\n            background: rgba(255, 255, 255, 0.1);\r\n            padding: 40px 20px;\r\n            border-radius: 15px;\r\n            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);\r\n            backdrop-filter: blur(10px);\r\n        }\r\n\r\n        h1 {\r\n            font-size: 2.5em;\r\n            margin: 0;\r\n            color: #fff;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <div class=\"container\">\r\n        <h1>Hello World Github Container Test</h1>\r\n        <p>The current date and time is "
+    }
+  }, {
+    "ASTType" : "BoxComponent",
+    "ASTPackage" : "ortus.boxlang.compiler.ast.statement.component",
+    "sourceText" : "<bx:output>#DateTimeFormat(now(),'full','PST')#</bx:output>",
+    "position" : {
+      "start" : {
+        "line" : 42,
+        "column" : 40
+      },
+      "end" : {
+        "line" : 42,
+        "column" : 99
+      }
+    },
+    "comments" : [ ],
+    "name" : "output",
+    "attributes" : [ ],
+    "body" : [ {
+      "ASTType" : "BoxBufferOutput",
+      "ASTPackage" : "ortus.boxlang.compiler.ast.statement",
+      "sourceText" : "#DateTimeFormat(now(),'full','PST')#",
+      "position" : {
+        "start" : {
+          "line" : 42,
+          "column" : 51
+        },
+        "end" : {
+          "line" : 42,
+          "column" : 87
+        }
+      },
+      "comments" : [ ],
+      "expression" : {
+        "ASTType" : "BoxStringInterpolation",
+        "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+        "sourceText" : "#DateTimeFormat(now(),'full','PST')#",
+        "position" : {
+          "start" : {
+            "line" : 42,
+            "column" : 51
+          },
+          "end" : {
+            "line" : 42,
+            "column" : 87
+          }
+        },
+        "comments" : [ ],
+        "values" : [ {
+          "ASTType" : "BoxFunctionInvocation",
+          "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+          "sourceText" : "DateTimeFormat(now(),'full','PST')",
+          "position" : {
+            "start" : {
+              "line" : 42,
+              "column" : 52
+            },
+            "end" : {
+              "line" : 42,
+              "column" : 86
+            }
+          },
+          "comments" : [ ],
+          "name" : "DateTimeFormat",
+          "arguments" : [ {
+            "ASTType" : "BoxArgument",
+            "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+            "sourceText" : "now()",
+            "position" : {
+              "start" : {
+                "line" : 42,
+                "column" : 67
+              },
+              "end" : {
+                "line" : 42,
+                "column" : 72
+              }
+            },
+            "comments" : [ ],
+            "name" : null,
+            "value" : {
+              "ASTType" : "BoxFunctionInvocation",
+              "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+              "sourceText" : "now()",
+              "position" : {
+                "start" : {
+                  "line" : 42,
+                  "column" : 67
+                },
+                "end" : {
+                  "line" : 42,
+                  "column" : 72
+                }
+              },
+              "comments" : [ ],
+              "name" : "now",
+              "arguments" : [ ]
+            }
+          }, {
+            "ASTType" : "BoxArgument",
+            "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+            "sourceText" : "'full'",
+            "position" : {
+              "start" : {
+                "line" : 42,
+                "column" : 73
+              },
+              "end" : {
+                "line" : 42,
+                "column" : 79
+              }
+            },
+            "comments" : [ ],
+            "name" : null,
+            "value" : {
+              "ASTType" : "BoxStringLiteral",
+              "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+              "sourceText" : "'full'",
+              "position" : {
+                "start" : {
+                  "line" : 42,
+                  "column" : 73
+                },
+                "end" : {
+                  "line" : 42,
+                  "column" : 79
+                }
+              },
+              "comments" : [ ],
+              "value" : "full"
+            }
+          }, {
+            "ASTType" : "BoxArgument",
+            "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+            "sourceText" : "'PST'",
+            "position" : {
+              "start" : {
+                "line" : 42,
+                "column" : 80
+              },
+              "end" : {
+                "line" : 42,
+                "column" : 85
+              }
+            },
+            "comments" : [ ],
+            "name" : null,
+            "value" : {
+              "ASTType" : "BoxStringLiteral",
+              "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+              "sourceText" : "'PST'",
+              "position" : {
+                "start" : {
+                  "line" : 42,
+                  "column" : 80
+                },
+                "end" : {
+                  "line" : 42,
+                  "column" : 85
+                }
+              },
+              "comments" : [ ],
+              "value" : "PST"
+            }
+          } ]
+        } ]
+      }
+    } ]
+  }, {
+    "ASTType" : "BoxBufferOutput",
+    "ASTPackage" : "ortus.boxlang.compiler.ast.statement",
+    "sourceText" : "</p>\r\n        \r\n    </div>\r\n</body>\r\n</html>\r\n\r\n",
+    "position" : {
+      "start" : {
+        "line" : 42,
+        "column" : 99
+      },
+      "end" : {
+        "line" : 46,
+        "column" : 11
+      }
+    },
+    "comments" : [ ],
+    "expression" : {
+      "ASTType" : "BoxStringLiteral",
+      "ASTPackage" : "ortus.boxlang.compiler.ast.expression",
+      "sourceText" : "</p>\r\n        \r\n    </div>\r\n</body>\r\n</html>\r\n\r\n",
+      "position" : {
+        "start" : {
+          "line" : 42,
+          "column" : 99
+        },
+        "end" : {
+          "line" : 46,
+          "column" : 11
+        }
+      },
+      "comments" : [ ],
+      "value" : "</p>\r\n        \r\n    </div>\r\n</body>\r\n</html>\r\n\r\n"
+    }
+  } ]
+}
