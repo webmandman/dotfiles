@@ -1,31 +1,53 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.22/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "default_float_width": 600,
   "default_float_heigth": 650,
-  "default_workspace_padding": 10,
-  "default_container_padding": 45,
+  "default_workspace_padding": 30,
+  "default_container_padding": 30,
   "border_padding": 0,
   "border_offset": 0,
-  "active_window_border": true,
-  "active_window_border_style": "Rounded",
-  "active_window_border_colours": {
+  "border": true,
+  "border_style": "Rounded",
+  "border_colours": {
     "single": "#4c2b7a",
     "stack": "#40ff00",
     "monocle": "#bf00ff"
+  },
+  "MSIMONITOR_SERIAL_NUMBER": "MA0H059370376",
+  "THINKVISION_SERIAL_NUMBER": "V30C16VW",
+  "display_index_preferences": {
+    "0": "MA0H059370376"
   },
   "border_width": 3,
   "monitors": [
     {
       "workspaces": [
         {
-          "name": "Work",
+          "name": "Code 1",
           "layout": "Columns"
         },
         {
-          "name": "Comms",
+          "name": "Code 2",
+          "layout": "Columns"
+        },
+        {
+          "name": "Terminal 3",
+          "layout": "BSP",
+          "workspace_rules": [
+            {
+              "id": "WindowsTerminal.exe",
+              "kind": "Exe"
+            }
+          ]
+        },
+        {
+          "name": "Browse 4",
+          "layout": "Columns"
+        },
+        {
+          "name": "Comms 5",
           "layout": "Columns",
           "workspace_rules": [
             {
@@ -47,11 +69,21 @@
           ]
         },
         {
-          "name": "Fun",
-          "layout": "BSP"
+          "name": "Post 6",
+          "layout": "Columns",
+          "workspace_rules": [
+            {
+              "id": "Postman.exe",
+              "kind": "Exe"
+            }
+          ]
         },
         {
-          "name": "Free",
+          "name": "Data 7",
+          "layout": "Columns"
+        },
+        {
+          "name": "Free 8",
           "workspace_rules": [
             {
               "id": "GoPro Player.exe",
@@ -60,15 +92,74 @@
             {
               "id": "Taskmgr.exe",
               "kind": "Exe"
+            },
+            {
+              "id": "mstsc.exe",
+              "kind": "Exe"
             }
           ]
         },
         {
-          "name": "5",
+          "name": "Todo 9",
+          "layout": "Columns",
+          "workspace_rules": [
+            {
+              "id": "Microsoft To Do",
+              "kind": "Title"
+            }
+          ]
+        },
+        {
+          "name": "Files 10",
+          "layout": "Columns",
+          "workspace_rules": [
+            {
+              "id": "explorer.exe",
+              "kind": "Exe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "Code 1",
           "layout": "Columns"
         },
         {
-          "name": "6",
+          "name": "Code 2",
+          "layout": "Columns"
+        },
+        {
+          "name": "Terminal 3",
+          "layout": "BSP"
+        },
+        {
+          "name": "Browse 4",
+          "layout": "Columns"
+        },
+        {
+          "name": "Comms 5",
+          "layout": "Columns"
+        },
+        {
+          "name": "Post 6",
+          "layout": "Columns"
+        },
+        {
+          "name": "Data 7",
+          "layout": "Columns"
+        },
+        {
+          "name": "Free 8"
+        },
+        {
+          "name": "Todo 9",
+          "layout": "Columns"
+        },
+        {
+          "name": "Files 10",
           "layout": "Columns"
         }
       ]

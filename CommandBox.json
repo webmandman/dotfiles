@@ -15,10 +15,11 @@
             "expo":"!expo",
             "git":"!git",
             "gl":"git branch -l",
-            "gstatus":"!git status -s | while read mode file; do echo $mode $(date --reference=$file +\"%Y-%m-%d %H:%M:%S\") $file; done",
+            "gstatus":"Git-StatusWithDates",
             "gulp":"!gulp",
             "gundo":"!git reset --keep HEAD@{1}",
             "intra":"cd C:/Development/sites/intra",
+            "kmonitors":"jq `!komorebic state` 'monitors.elements' | sql select=name,device",
             "list":"git branch -l",
             "main":"git checkout main",
             "master":"git checkout main",
@@ -36,7 +37,7 @@
             "push":"!git push",
             "px":"!pnpx",
             "rmrf":"rm --recurse --force",
-            "sites":"cd C:/Development/sites",
+            "sites":"cd D:\\Development\\sites",
             "spell":"C:/Development/playground/webmandman-coldbox-docs/spell.bat",
             "ssh":"!ssh",
             "sslscan":"!sslscan",
@@ -88,6 +89,9 @@
         "commandbox-cfconfig":{
             "autoTransferOnUpgrade":"true"
         },
+        "commandbox-fusionreactor":{
+            "licenseKey":"CLOUD-ZBUHO-4U4WV-ICFDA-YVVCO-KZBUK"
+        },
         "commandbox-navigate":{
             "history":[
                 "C:\\Development\\Tools\\dotfiles\\",
@@ -119,6 +123,9 @@
             ],
             "historyIndex":1,
             "historyMax":25
+        },
+        "commandbox-update-check":{
+            "dateLastChecked":"October, 30 2025 17:19:09 -0700"
         },
         "oh-my-commandbox":{
             "addNewLine":"false",

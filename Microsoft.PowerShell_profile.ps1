@@ -13,6 +13,10 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+Set-Alias boxstable "C:\Development\Tools\Commandbox\box.exe"
+
+Set-Alias boxedge "C:\Development\Tools\Commandbox-BE\box.exe"
+
 # NOTE No more set-alias used here since ZLocation module handles shortcuts for everything
 Import-Module ZLocation
 
@@ -30,12 +34,16 @@ function kultra([int] $monitor = 0, [int] $workspace = 0) {
   komorebic workspace-layout $monitor $workspace ultrawide-vertical-stack
 }
 
+function kmonitors(){
+  (komorebic state | ConvertFrom-Json).monitors.elements | select-object name
+}
+
 function play(){
   cd C:\Development\Playground\
 }
 
 function sites(){
-  cd C:\Development\Sites\
+  cd D:\Development\Sites\
 }
 
 function api(){
@@ -82,3 +90,20 @@ function cftranspile {
   C:\Development\Tools\boxlang\jdk\21\bin\java.exe -cp C:\Development\Tools\boxlang\lib\boxlang-1.0.0-all.jar ortus.boxlang.compiler.CFTranspiler 
 }
 
+function Git-StatusWithDates {
+    git status -s | ForEach-Object {
+        # Use regex to extract mode and filename
+        if ($_ -match '^(..)\s+(.+)$') {
+            $mode = $matches[1].Trim()
+            $file = $matches[2].Trim('"')  # remove quotes if present
+
+            # Test if file exists and get date
+            if (Test-Path $file) {
+                $date = (Get-Item $file).LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss")
+                Write-Output "$mode $date $file"
+            } else {
+                Write-Output "$mode <file not found> $file"
+            }
+        }
+    }
+}

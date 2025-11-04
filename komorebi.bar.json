@@ -1,13 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.30/schema.bar.json",
   "monitor": {
-    "index": 1,
-    "work_area_offset": {
-      "left": 0,
-      "top": 40,
-      "right": 0,
-      "bottom": 40
-    }
+    "index": 1
   },
   "font_family": "JetBrains Mono",
   "theme": {
@@ -36,7 +30,7 @@
     {
       "Media": {
         "enable": true
-      
+      }
     },
     {
       "Storage": {
