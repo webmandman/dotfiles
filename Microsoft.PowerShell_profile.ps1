@@ -1,7 +1,7 @@
 write-output '~\.dotfiles\Microsoft.Powershell_profile.ps1 loaded'
 
 # terminal prompt feature and themes
-oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\AppData\Local\Programs\oh-my-posh\themes\dracula.omp.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\.dotfiles\oh-my-posh.themes\nordtron.omp.json' | Invoke-Expression
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -17,7 +17,7 @@ Set-Alias boxstable "C:\Development\Tools\Commandbox\box.exe"
 
 Set-Alias boxedge "C:\Development\Tools\Commandbox-BE\box.exe"
 
-# NOTE No more set-alias used here since ZLocation module handles shortcuts for everything
+# NOTE use z as you would the cd command. it remembers every folder you "cd" into and prioritizes by which folders you use more.
 Import-Module ZLocation
 
 # Komorebi stop 
