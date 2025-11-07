@@ -2,14 +2,43 @@
 
 WSL NixOs, Neovim, Zsh, Commandbox, Windows Terminal, Powershell, Cmd, VsCode. 
 
-1. Install chocolatey
-2. Install zLocation (equivelant to zoxide)
+1. Install chocolatey and scoop
+2. scoop install git
+3. scoop bucket add extras
+4. scoop install neovim
+5. scoop install komorebi
+5. scoop install oh-my-posh
+5. oh-my-posh font install meslo
+6. oh-my-posh theme config
+    - Edit the dotfile Microsoft.PowerShell_profile.ps1 and reference the theme file in the dotfiles.
+    - Currently I've only added dracula and AMRO to dotfiles
+6. install (aliases, oh-my-posh, zoxide)
+6. PowerShell $PROFILE
+    - Scope: 
+        - Current User: only you
+        - All Users: everyone on the computer
+    - Host: 
+        - All Hosts: any powershell environment (console, ISE, VS Code terminal, etc.)
+        - Current Host: only this specific powershell host
+    - View the location of all possible ps1 scripts:
+        - run `$PROFILE.AllUsersAllHosts`
+        - run `$PROFILE.AllUsersCurrentHost`
+        - run `$PROFILE.CurrentuserAllHosts`
+        - run `$PROFILE.CurrentuserCurrentHost`
+    - Symlink the Powershell profile script to CurrentUserAllHosts (only for me on all hosts - woohooo)
+    - Run `New-Item -Path 'C:\Users\daniel.mejia\OneDrive - Psomas\Documents\PowerShell\profile.ps1' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\Microsoft.PowerShell_profile.ps1'`
+6. Install zLocation (equivelant to zoxide)
    - `Install-Module ZLocation -Scope CurrentUser; Import-Module ZLocation; Add-Content -Value "`r`n`r`nImport-Module ZLocation`r`n" -Encoding utf8 -Path $PROFILE.CurrentUserAllHosts`
    - use `z` like you would `cd` and it will keep track of all your visited paths
 1. install oh-my-posh, neovim
    - `choco install neovim oh-my-posh`
-1. Symlink the Powershell Config (aliases, oh-my-posh, zoxide)
-   - New-Item -Path 'C:\Users\daniel.mejia\OneDrive - Psomas\Documents\PowerShell\Microsoft.PowerShell_profile.ps1' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\Microsoft.PowerShell_profile.ps1'
+1. git clone this repo into ~\.dotfiles
+2. `winget search Microsoft.PowerShell`
+3. `winget install --id Microsoft.PowerShell.Preview --source winget`
+4. Launch Windows Terminal
+5. Add Powershell 7 profile and make it the default profile
+6. Make the defaults profile "Run this profile as Administrator"
+7. TODO: FIGURE OUT HOW TO LAUNCH Windows Terminal as managed window in Komorebi, by default it doesn't fall into the organized grid. I THINK BECAUSE komorebi.json is not set yet??????
 1. Symlink the WHKD Config (global keybindings)
    - New-Item -Path 'C:\Users\daniel.mejia\.config\whkdrc' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\whkdrc'
 1. Install/Enable WSL 2 
@@ -171,6 +200,7 @@ Make TLS Changes
 2. `iiscryptocli /backup servertlsbackup`
 3. `iiscryptocli /template best`
 4. restart computer
+
 
 
 
