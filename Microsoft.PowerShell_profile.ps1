@@ -1,7 +1,7 @@
 write-output '~\.dotfiles\Microsoft.Powershell_profile.ps1 loaded'
 
 # terminal prompt feature and themes
-oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\.dotfiles\oh-my-posh.themes\nordtron.omp.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\.dotfiles\oh-my-posh.themes\velvet.omp.json' | Invoke-Expression
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -12,10 +12,6 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
-
-Set-Alias boxstable "C:\Development\Tools\Commandbox\box.exe"
-
-Set-Alias boxedge "C:\Development\Tools\Commandbox-BE\box.exe"
 
 # NOTE use z as you would the cd command. it remembers every folder you "cd" into and prioritizes by which folders you use more.
 Import-Module ZLocation
@@ -43,7 +39,7 @@ function play(){
 }
 
 function sites(){
-  cd D:\Development\Sites\
+  cd C:\Development\Sites\
 }
 
 function api(){
