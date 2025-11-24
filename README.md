@@ -7,11 +7,9 @@ WSL NixOs, Neovim, Zsh, Commandbox, Windows Terminal, Powershell, Cmd, VsCode.
 3. scoop bucket add extras
 4. scoop install neovim
 5. scoop install komorebi
+	- Add environment variable KOMOREBI_CONFIG_HOME set to C:\Users\daniel.mejia\.dotfiles to powershell profile
 5. scoop install oh-my-posh
 5. oh-my-posh font install meslo
-6. oh-my-posh theme config
-    - Edit the dotfile Microsoft.PowerShell_profile.ps1 and reference the theme file in the dotfiles.
-    - Currently I've only added dracula and AMRO to dotfiles
 6. install (aliases, oh-my-posh, zoxide)
 6. PowerShell $PROFILE
     - Scope: 
@@ -40,7 +38,7 @@ WSL NixOs, Neovim, Zsh, Commandbox, Windows Terminal, Powershell, Cmd, VsCode.
 6. Make the defaults profile "Run this profile as Administrator"
 7. TODO: FIGURE OUT HOW TO LAUNCH Windows Terminal as managed window in Komorebi, by default it doesn't fall into the organized grid. I THINK BECAUSE komorebi.json is not set yet??????
 1. Symlink the WHKD Config (global keybindings)
-   - New-Item -Path 'C:\Users\daniel.mejia\.config\whkdrc' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\whkdrc'
+   - `New-Item -Path 'C:\Users\daniel.mejia\.config\whkdrc' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\whkdrc'`
 1. Install/Enable WSL 2 
 2. Download installer from https://github.com/nix-community/NixOS-WSL
 3. `wsl --import <name-your-os> .\NixOS\ nixos-wsl.tar.gz --version 2`

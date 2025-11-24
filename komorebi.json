@@ -15,11 +15,14 @@
     "stack": "#40ff00",
     "monocle": "#bf00ff"
   },
-  "MSIMONITOR_SERIAL_NUMBER": "MA0H059370376",
-  "THINKVISION_SERIAL_NUMBER": "V30C16VW",
   "display_index_preferences": {
-    "0": "MA0H059370376"
+    "0": "MSI1462-4&18a747&1&UID24648",
+    "1": "BOE0CC6-4&18a747&1&UID8388688"
   },
+  "bar_configurations": [
+    "komorebi.bar.json",
+    "komorebi.bar.laptop.json"
+  ],
   "border_width": 3,
   "monitors": [
     {
@@ -124,43 +127,16 @@
     {
       "workspaces": [
         {
-          "name": "Code 1",
+          "name": "1",
           "layout": "Columns"
         },
         {
-          "name": "Code 2",
+          "name": "2",
           "layout": "Columns"
         },
         {
-          "name": "Terminal 3",
+          "name": "3",
           "layout": "BSP"
-        },
-        {
-          "name": "Browse 4",
-          "layout": "Columns"
-        },
-        {
-          "name": "Comms 5",
-          "layout": "Columns"
-        },
-        {
-          "name": "Post 6",
-          "layout": "Columns"
-        },
-        {
-          "name": "Data 7",
-          "layout": "Columns"
-        },
-        {
-          "name": "Free 8"
-        },
-        {
-          "name": "Todo 9",
-          "layout": "Columns"
-        },
-        {
-          "name": "Files 10",
-          "layout": "Columns"
         }
       ]
     }

@@ -18,11 +18,26 @@ Import-Module ZLocation
 
 # Komorebi stop 
 function kstop(){
-  komorebic stop --whkd --bar
+  komorebic stop --whkd
+
+  Stop-Process -Name "komorebi-bar"
 }
 # Komorebi restart custom command
 function kstart(){
-  komorebic start --whkd --bar
+  komorebic start --whkd
+  
+  $barconfigpath = "$env:USERPROFILE\.dotfiles\komorebi.bar.json"
+  Start-Process -FilePath "komorebi-bar" -ArgumentList @(
+    '--config',
+    $barconfigpath
+  ) -WindowStyle Hidden
+
+  $laptopbarconfigpath = "$env:USERPROFILE\.dotfiles\komorebi.bar.laptop.json"
+  Start-Process -FilePath "komorebi-bar" -ArgumentList @(
+    '--config',
+    $laptopbarconfigpath
+  ) -WindowStyle Hidden
+
   echo "komorebic and whkd started...only run once after restarting pc, or make sure all processes for whkd and komorebic are stopped before starting up again. Use custom function 'kstop' in pwsh to stop both processes."
 }
 
@@ -103,3 +118,6 @@ function Git-StatusWithDates {
         }
     }
 }
+
+
+$Env:KOMOREBI_CONFIG_HOME = "$env:USERPROFILE\.dotfiles"

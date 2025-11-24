@@ -5,24 +5,6 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#0E050F",
-          "foreground": "#EFDCF9",
-          "properties": {
-            "arch": "\uf303",
-            "debian": "\uf306",
-            "fedora": "\uf30a",
-            "linux": "\uf17c",
-            "macos": "\uf179",
-            "manjaro": "\uf312",
-            "opensuse": "\uf314",
-            "ubuntu": "\uf31b",
-            "windows": "\uf17a"
-          },
-          "style": "diamond",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
-          "type": "os"
-        },
-        {
           "background": "#170B3B",
           "foreground": "#EFDCF9",
           "powerline_symbol": "\ue0b4",
@@ -33,8 +15,8 @@
             "max_depth": 3,
             "style": "agnoster_short"
           },
-          "style": "powerline",
-          "template": " {{ .Path }} ",
+          "style": "diamond",
+          "template": " {{ if .Segments.Git.BranchStatus }} {{ else }} {{ .Path }} {{ end }} ",
           "type": "path"
         },
         {
@@ -44,10 +26,11 @@
           "properties": {
             "branch_template": "{{ trunc 25 .Branch }}",
             "fetch_status": true,
-            "fetch_upstream_icon": true
+            "fetch_upstream_icon": true,
+	    "github_icon": "\ue709"
           },
-          "style": "powerline",
-          "template": " {{ .RepoName }} {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "style": "{{ if .BranchStatus }}diamond{{ else }}powerline{{ end }}",
+          "template": " {{ .UpstreamIcon }} {{ .RepoName }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
           "type": "git"
         },
         {
@@ -71,7 +54,7 @@
             "always_enabled": true
           },
           "style": "diamond",
-          "template": " \uf08a{{ if gt .Code 0 }} {{.Code}}{{ end }} ",
+          "template": " {{ if gt .Code 0 }} \uf165 {{else}} \uf164 {{ end }} ",
           "trailing_diamond": "\ue0b4",
           "type": "status"
         }
