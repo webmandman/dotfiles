@@ -55,12 +55,3 @@ Expand-Archive -LiteralPath ($downloadpath + $zipfilename) -DestinationPath ($in
 $global:ProgressPreference = "Continue"
 echo "Done"
 
-# Get current path
-$PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine")
-# Remove stable or be path
-$editedpath = ($PATH.Split(";") | 
-	Where-Object { $_.trimEnd("\") -ne ($installpath + $previous) }) -join ";"
-
-# Add stable or be path
-$NEWPATH = $editedpath + $installpath + $v
-[System.Environment]::SetEnvironmentVariable("PATH", $NEWPATH, "Machine")

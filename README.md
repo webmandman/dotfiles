@@ -3,14 +3,24 @@
 WSL NixOs, Neovim, Zsh, Commandbox, Windows Terminal, Powershell, Cmd, VsCode. 
 
 1. Install chocolatey and scoop
+	- `irm get.scoop.sh | iex`
 2. scoop install git
 3. scoop bucket add extras
 4. scoop install neovim
 5. scoop install komorebi
-	- Add environment variable KOMOREBI_CONFIG_HOME set to C:\Users\daniel.mejia\.dotfiles to powershell profile
+	- Required Config:
+	- environment variable KOMOREBI_CONFIG_HOME set to C:\Users\daniel.mejia\.dotfiles has already been added to powershell profile
+5. scoop install whkd
+	- Symlink the WHKD Config (global keybindings)
+   	- `New-Item -Path 'C:\Users\webmandman\.config\whkdrc' -ItemType SymbolicLink -Value 'C:\Users\webmandman\.dotfiles\whkdrc'`
 5. scoop install oh-my-posh
 5. oh-my-posh font install meslo
-6. install (aliases, oh-my-posh, zoxide)
+6. Install zLocation (equivelant to zoxide)
+	- Install the module. The .dotfiles powershell script already has the import command line
+	- `Install-Module ZLocation -Scope CurrentUser`
+	- OR if needed, use this one liner that installs and adds import command to the powershell script.
+   	- `Install-Module ZLocation -Scope CurrentUser; Import-Module ZLocation; Add-Content -Value "`r`n`r`nImport-Module ZLocation`r`n" -Encoding utf8 -Path $PROFILE.CurrentUserAllHosts`
+   		- use `z` like you would `cd` and it will keep track of all your visited paths
 6. PowerShell $PROFILE
     - Scope: 
         - Current User: only you
@@ -24,35 +34,36 @@ WSL NixOs, Neovim, Zsh, Commandbox, Windows Terminal, Powershell, Cmd, VsCode.
         - run `$PROFILE.CurrentuserAllHosts`
         - run `$PROFILE.CurrentuserCurrentHost`
     - Symlink the Powershell profile script to CurrentUserAllHosts (only for me on all hosts - woohooo)
-    - Run `New-Item -Path 'C:\Users\daniel.mejia\OneDrive - Psomas\Documents\PowerShell\profile.ps1' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\Microsoft.PowerShell_profile.ps1'`
-6. Install zLocation (equivelant to zoxide)
-   - `Install-Module ZLocation -Scope CurrentUser; Import-Module ZLocation; Add-Content -Value "`r`n`r`nImport-Module ZLocation`r`n" -Encoding utf8 -Path $PROFILE.CurrentUserAllHosts`
-   - use `z` like you would `cd` and it will keep track of all your visited paths
-1. install oh-my-posh, neovim
-   - `choco install neovim oh-my-posh`
+    - Run `New-Item -Path 'C:\Users\webmandman\Documents\WindowsPowerShell\profile.ps1' -ItemType SymbolicLink -Value 'C:\Users\webmandman\.dotfiles\Microsoft.PowerShell_profile.ps1'`
 1. git clone this repo into ~\.dotfiles
-2. `winget search Microsoft.PowerShell`
-3. `winget install --id Microsoft.PowerShell.Preview --source winget`
+2. Install Powershell Latest (currently 7)
+	- `winget search Microsoft.PowerShell`
+	- `winget install --id Microsoft.PowerShell.Preview --source winget`
 4. Launch Windows Terminal
 5. Add Powershell 7 profile and make it the default profile
 6. Make the defaults profile "Run this profile as Administrator"
-7. TODO: FIGURE OUT HOW TO LAUNCH Windows Terminal as managed window in Komorebi, by default it doesn't fall into the organized grid. I THINK BECAUSE komorebi.json is not set yet??????
-1. Symlink the WHKD Config (global keybindings)
-   - `New-Item -Path 'C:\Users\daniel.mejia\.config\whkdrc' -ItemType SymbolicLink -Value 'C:\Users\daniel.mejia\.dotfiles\whkdrc'`
 1. Install/Enable WSL 2 
 2. Download installer from https://github.com/nix-community/NixOS-WSL
 3. `wsl --import <name-your-os> .\NixOS\ nixos-wsl.tar.gz --version 2`
 4. Use powershell alias `nup` to enter distro `wsl -d <name-your-os>`
 5. Follow instructions from https://github.com/webmandman/nixos-wsl-starter
     - Original repo comes with lunarvim, remove from home.nix config. 
-6. 
+9. Install Commandbox
+	- `.\InstallCommandbox.ps1`
+	- Add `C:\Development\Tools\Commandbox\latest` to system PATH
+	- Run `box`
+	- Run `box> recipe ~\.dotfiles\recipes\commandbox-essentials.boxr`
+10. keybindings for Windows Terminal. Windows Terminal Json path??? Syslink to a .dotfile???
+	- for example: Ctrl + M  hides tabs
+	- C:\Users\webmandman\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+	- I can make this a dotfile and syslink it but the actual path will be different on every OS
 
 
 ## Powershell
 
 -- .dotfiles/Microsoft.Powershell_profile.ps1
 
-This config files contains powershell aliases, oh-my-posh prompt, and zoxide (which has issues remembering my directories)
+This config files contains powershell aliases, oh-my-posh prompt, and ZLocation (which has issues remembering my directories)
 
 
 

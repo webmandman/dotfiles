@@ -17,4 +17,3 @@ config set command.aliases.nvim='!nvim'
 config set server='test'
 
 install commandbox-banner-customizer,commandbox-bullet-train,commandbox-cbdatasource,commandbox-cfconfig,commandbox-cfformat,commandbox-dotenv,commandbox-hostupdater,commandbox-http-command,commandbox-migrations
-
