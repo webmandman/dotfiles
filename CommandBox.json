@@ -37,7 +37,7 @@
             "push":"!git push",
             "px":"!pnpx",
             "rmrf":"rm --recurse --force",
-            "sites":"cd D:\\Development\\sites",
+            "sites":"cd C:/Development/sites",
             "spell":"C:/Development/playground/webmandman-coldbox-docs/spell.bat",
             "ssh":"!ssh",
             "sslscan":"!sslscan",
@@ -125,7 +125,7 @@
             "historyMax":25
         },
         "commandbox-update-check":{
-            "dateLastChecked":"November, 04 2025 15:33:18 -0800"
+            "dateLastChecked":"January, 06 2026 09:59:31 -0800"
         },
         "oh-my-commandbox":{
             "addNewLine":"false",

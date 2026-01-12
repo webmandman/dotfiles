@@ -15,8 +15,19 @@
     "stack": "#40ff00",
     "monocle": "#bf00ff"
   },
+  "my_monitors": [
+    {
+      "laptop_deviceid": "BOE0CC6-4&18a747&1&UID8388688"
+    },
+    {
+      "thinkvision_deviceid": "LEN63D4-4&18a747&1&UID24648"
+    },
+    {
+      "msi_deviceid": "MSI1462-4&18a747&1&UID8263"
+    }
+  ],
   "display_index_preferences": {
-    "0": "MSI1462-4&18a747&1&UID24648",
+    "0": "MSI1462-4&18a747&1&UID8263",
     "1": "BOE0CC6-4&18a747&1&UID8388688"
   },
   "bar_configurations": [
@@ -62,10 +73,6 @@
               "kind": "Exe"
             },
             {
-              "id": "ms-teams.exe",
-              "kind": "Exe"
-            },
-            {
               "id": "olk.exe",
               "kind": "Exe"
             }
@@ -83,7 +90,13 @@
         },
         {
           "name": "Data 7",
-          "layout": "Columns"
+          "layout": "Columns",
+          "workspace_rules": [
+            {
+              "id": "Ssms.exe",
+              "kind": "Exe"
+            }
+          ]
         },
         {
           "name": "Free 8",
