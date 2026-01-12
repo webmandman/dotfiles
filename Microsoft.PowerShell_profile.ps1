@@ -1,7 +1,7 @@
 write-output '~\.dotfiles\Microsoft.Powershell_profile.ps1 loaded'
 
 # terminal prompt feature and themes
-oh-my-posh init pwsh --config 'C:\Users\daniel.mejia\.dotfiles\oh-my-posh.themes\velvet.omp.json' | Invoke-Expression
+oh-my-posh init pwsh --config '~\.dotfiles\oh-my-posh.themes\velvet.omp.json' | Invoke-Expression
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
