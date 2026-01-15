@@ -25,11 +25,13 @@
     },
     {
       "msi_deviceid": "MSI1462-4&18a747&1&UID8263"
+    },
+    {
+      "lg_deviceid": "GSM5B08-4&1fc5a023&0&UID49"
     }
   ],
   "display_index_preferences": {
-    "0": "MSI1462-4&18a747&1&UID8263",
-    "1": "BOE0CC6-4&18a747&1&UID8388688"
+    "0": "GSM5B08-4&1fc5a023&0&UID49"
   },
   "bar_configurations": [
     "komorebi.bar.json",
