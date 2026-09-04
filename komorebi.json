@@ -1,15 +1,16 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.38/schema.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "default_float_width": 600,
   "default_float_heigth": 650,
-  "default_workspace_padding": 30,
-  "default_container_padding": 30,
+  "default_workspace_padding": 20,
+  "default_container_padding": 20,
   "border_padding": 0,
-  "border_offset": 0,
+  "border_offset": 1,
   "border": true,
   "border_style": "Rounded",
+  "border_width": 5,
   "border_colours": {
     "single": "#4c2b7a",
     "stack": "#40ff00",
@@ -20,123 +21,21 @@
       "laptop_deviceid": "BOE0CC6-4&18a747&1&UID8388688"
     },
     {
-      "thinkvision_deviceid": "LEN63D4-4&18a747&1&UID24648"
+      "thinkvision_deviceid": "LEN63D4-4&18a747&1&UID8263"
     },
     {
-      "msi_deviceid": "MSI1462-4&18a747&1&UID8263"
+      "msi_deviceid": "MSI1462-4&18a747&1&UID24648"
     }
   ],
   "display_index_preferences": {
-    "0": "MSI1462-4&18a747&1&UID8263",
+    "0": "MSI1462-4&18a747&1&UID24648",
     "1": "BOE0CC6-4&18a747&1&UID8388688"
   },
   "bar_configurations": [
     "komorebi.bar.json",
     "komorebi.bar.laptop.json"
   ],
-  "border_width": 3,
   "monitors": [
-    {
-      "workspaces": [
-        {
-          "name": "Code 1",
-          "layout": "Columns"
-        },
-        {
-          "name": "Code 2",
-          "layout": "Columns"
-        },
-        {
-          "name": "Terminal 3",
-          "layout": "BSP",
-          "workspace_rules": [
-            {
-              "id": "WindowsTerminal.exe",
-              "kind": "Exe"
-            }
-          ]
-        },
-        {
-          "name": "Browse 4",
-          "layout": "Columns"
-        },
-        {
-          "name": "Comms 5",
-          "layout": "Columns",
-          "workspace_rules": [
-            {
-              "id": "Taskmgr.exe",
-              "kind": "Exe"
-            },
-            {
-              "id": "slack.exe",
-              "kind": "Exe"
-            },
-            {
-              "id": "olk.exe",
-              "kind": "Exe"
-            }
-          ]
-        },
-        {
-          "name": "Post 6",
-          "layout": "Columns",
-          "workspace_rules": [
-            {
-              "id": "Postman.exe",
-              "kind": "Exe"
-            }
-          ]
-        },
-        {
-          "name": "Data 7",
-          "layout": "Columns",
-          "workspace_rules": [
-            {
-              "id": "Ssms.exe",
-              "kind": "Exe"
-            }
-          ]
-        },
-        {
-          "name": "Free 8",
-          "workspace_rules": [
-            {
-              "id": "GoPro Player.exe",
-              "kind": "Exe"
-            },
-            {
-              "id": "Taskmgr.exe",
-              "kind": "Exe"
-            },
-            {
-              "id": "mstsc.exe",
-              "kind": "Exe"
-            }
-          ]
-        },
-        {
-          "name": "Todo 9",
-          "layout": "Columns",
-          "workspace_rules": [
-            {
-              "id": "Microsoft To Do",
-              "kind": "Title"
-            }
-          ]
-        },
-        {
-          "name": "Files 10",
-          "layout": "Columns",
-          "workspace_rules": [
-            {
-              "id": "explorer.exe",
-              "kind": "Exe"
-            }
-          ]
-        }
-      ]
-    },
     {
       "workspaces": [
         {
@@ -145,10 +44,64 @@
         },
         {
           "name": "2",
-          "layout": "Columns"
+          "layout": "VerticalStack"
         },
         {
           "name": "3",
+          "layout": "BSP"
+        },
+        {
+          "name": "4",
+          "layout": "Columns"
+        },
+        {
+          "name": "5",
+          "layout": "Columns"
+        },
+        {
+          "name": "6",
+          "layout": "Columns"
+        },
+        {
+          "name": "7"
+        },
+        {
+          "name": "Free 8"
+        },
+        {
+          "name": "9",
+          "layout": "Columns"
+        },
+        {
+          "name": "10",
+          "layout": "Columns"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "1",
+          "layout": "BSP"
+        },
+        {
+          "name": "2",
+          "layout": "BSP"
+        },
+        {
+          "name": "3",
+          "layout": "BSP"
+        },
+        {
+          "name": "4",
+          "layout": "BSP"
+        },
+        {
+          "name": "5",
+          "layout": "BSP"
+        },
+        {
+          "name": "6",
           "layout": "BSP"
         }
       ]
