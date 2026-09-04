@@ -24,6 +24,9 @@ function kstop(){
 }
 # Komorebi restart custom command
 function kstart(){
+  # refresh display_index_preferences first so komorebi reads the current monitor layout
+  kmonitors
+
   komorebic start --whkd
   
   $barconfigpath = "$env:USERPROFILE\.dotfiles\komorebi.bar.json"
@@ -45,59 +48,62 @@ function kultra([int] $monitor = 0, [int] $workspace = 0) {
   komorebic workspace-layout $monitor $workspace ultrawide-vertical-stack
 }
 
-function kmonitors(){  
-  # Get monitor information from komorebic
+function kmonitors(){
+  # Get monitor info straight from WMI so this works even when komorebi isn't running.
+  # WmiMonitorID.InstanceName already matches komorebi's device_id casing exactly,
+  # e.g. "DISPLAY\DELA27C\4&18a747&1&UID8263_0" -> "DELA27C-4&18a747&1&UID8263".
   try {
-    $monitorInfoJson = komorebic monitor-information
-    if (-not $monitorInfoJson) {
-      Write-Host "Error: Failed to get monitor information from komorebic." -ForegroundColor Red
-      return
-    }
-    $monitors = $monitorInfoJson | ConvertFrom-Json
+    $ids  = @(Get-CimInstance -Namespace root\wmi -ClassName WmiMonitorID -ErrorAction Stop)
+    $conn = @(Get-CimInstance -Namespace root\wmi -ClassName WmiMonitorConnectionParams -ErrorAction Stop)
   }
   catch {
-    Write-Host "Error: Failed to get monitor information: $_" -ForegroundColor Red
+    Write-Host "Error: Failed to query monitor information from WMI: $_" -ForegroundColor Red
     return
   }
-  
-  # First monitor in array is always the laptop
-  $laptopMonitor = $monitors[0]
-  $laptopDeviceId = $laptopMonitor.device_id
-  
-  # Second monitor (if exists) is the first external monitor
-  $externalDeviceId = $null
-  if ($monitors.Count -gt 1) {
-    $externalMonitor = $monitors[1]
-    $externalDeviceId = $externalMonitor.device_id
+
+  if ($ids.Count -eq 0) {
+    Write-Host "Error: No active monitors found." -ForegroundColor Red
+    return
   }
-  
+
+  # Map each monitor's InstanceName -> VideoOutputTechnology.
+  # The internal/integrated laptop panel reports 0x80000000 (2147483648).
+  $internalTech = 2147483648
+  $techByInstance = @{}
+  foreach ($c in $conn) { $techByInstance[$c.InstanceName] = $c.VideoOutputTechnology }
+
+  $monitors = foreach ($id in $ids) {
+    # Convert "DISPLAY\<hwid>\<instance>_0" -> "<hwid>-<instance>" (komorebi format).
+    $parts = $id.InstanceName.Split([char]0x5C)   # split on backslash
+    $tail  = $parts[2]
+    $u     = $tail.LastIndexOf('_')
+    if ($u -ge 0) { $tail = $tail.Substring(0, $u) }
+    $deviceId = $parts[1] + '-' + $tail
+
+    # Decode the EDID friendly name (array of UTF-16 code units, null-padded).
+    $name = ($id.UserFriendlyName | Where-Object { $_ -ne 0 } | ForEach-Object { [char]$_ }) -join ''
+
+    [pscustomobject]@{
+      DeviceId   = $deviceId
+      Name       = $name
+      IsInternal = ($techByInstance[$id.InstanceName] -eq $internalTech)
+    }
+  }
+
+  $laptop    = $monitors | Where-Object { $_.IsInternal } | Select-Object -First 1
+  $externals = @($monitors | Where-Object { -not $_.IsInternal })
+
+  $laptopDeviceId   = if ($laptop) { $laptop.DeviceId } else { $null }
+  $externalDeviceId = if ($externals.Count -gt 0) { $externals[0].DeviceId } else { $null }
+
   # Display found monitors
   Write-Host "`nFound monitors:" -ForegroundColor Cyan
-  for ($i = 0; $i -lt $monitors.Count; $i++) {
-    $monitor = $monitors[$i]
-    $type = if ($i -eq 0) { "Laptop" } else { "External" }
-    Write-Host "  [$i] $type - Device ID: $($monitor.device_id)" -ForegroundColor White
-    Write-Host "      Name: $($monitor.name), Device: $($monitor.device)" -ForegroundColor Gray
+  foreach ($monitor in $monitors) {
+    $type = if ($monitor.IsInternal) { "Laptop" } else { "External" }
+    Write-Host "  $type - Device ID: $($monitor.DeviceId)" -ForegroundColor White
+    Write-Host "      Name: $($monitor.Name)" -ForegroundColor Gray
   }
-  
-  # Show what will be set
-  Write-Host "`nProposed changes to display_index_preferences:" -ForegroundColor Cyan
-  if ($externalDeviceId) {
-    Write-Host "  Index 0 (External): $externalDeviceId" -ForegroundColor Yellow
-  } else {
-    Write-Host "  Index 0 (External): <no external monitor found>" -ForegroundColor Yellow
-  }
-  Write-Host "  Index 1 (Laptop): $laptopDeviceId" -ForegroundColor Yellow
-  
-  # Ask for confirmation
-  Write-Host "`nApply these changes? (Y/N): " -ForegroundColor Cyan -NoNewline
-  $response = Read-Host
-  
-  if ($response -notmatch '^[Yy]') {
-    Write-Host "Changes cancelled." -ForegroundColor Yellow
-    return
-  }
-  
+
   # Read komorebi.json
   $configPath = "$env:USERPROFILE\.dotfiles\komorebi.json"
   $configContent = Get-Content -Path $configPath -Raw | ConvertFrom-Json
@@ -114,6 +120,10 @@ function kmonitors(){
   Write-Host "`nSuccessfully updated display_index_preferences!" -ForegroundColor Green
   Write-Host "  0 (External): $externalDeviceId"
   Write-Host "  1 (Laptop): $laptopDeviceId"
+}
+
+function dirh(){
+  Get-ChildItem -Force @args
 }
 
 function play(){
@@ -138,6 +148,14 @@ function tools(){
 
 function editdotfiles(){
   nvim "$env:USERPROFILE\.dotfiles\README.md" +"au UIEnter * ++once :Telescope find_files"
+}
+
+function cc(){
+  claude
+}
+
+function ccd(){
+  claude --dangerously-skip-permissions
 }
 
 function keys(){
