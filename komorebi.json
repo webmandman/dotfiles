@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.38/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/.dotfiles/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "default_float_width": 600,
@@ -25,6 +26,9 @@
     },
     {
       "msi_deviceid": "MSI1462-4&18a747&1&UID24648"
+    },
+    {
+      "lg_deviceid": "GSM5B08-4&1fc5a023&0&UID49"
     }
   ],
   "display_index_preferences": {
